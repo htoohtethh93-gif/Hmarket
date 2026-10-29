@@ -1,0 +1,17 @@
+H MARKET — API READY SAFE EXTENSION
+
+1. Existing database and Supabase architecture are preserved.
+2. Existing Admin Dashboard and Home Content implementation are preserved.
+3. Browser can optionally use an H MARKET API Gateway by setting:
+   apiBaseUrl: "https://api.hmarket.example"
+   in src/shared/config.js.
+4. The Supabase client will use the gateway as its API/Auth/Storage/Realtime
+   origin when apiBaseUrl is configured, so existing query code does not need
+   to be rewritten table-by-table.
+5. The gateway is deployment-ready under api/gateway/ and forwards only the
+   required Supabase API paths.
+6. No Supabase secret/service-role key is added to the browser or gateway.
+7. When apiBaseUrl is empty, current direct Supabase behavior remains intact.
+8. Initial Supabase status now means real API reachability, not merely that the
+   JavaScript client object was created.
+9. Customer/Admin Realtime does not start while API health is known to be offline.

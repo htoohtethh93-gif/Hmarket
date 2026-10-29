@@ -1,0 +1,26 @@
+H MARKET SAFE PATCH
+
+Changed:
+1. src/shared/supabase.js
+   - Keeps the existing Supabase client architecture.
+   - Adds a real PostgREST API health check in the background.
+   - Distinguishes client creation from actual API reachability.
+   - Adds a retry before reporting API network failure.
+   - Does not block HMARKET_READY on the network check.
+
+2. src/customer/customer.html
+   - Adds a small connection warning/retry UI.
+   - The existing Home, Account, Cart and navigation structure is unchanged.
+
+3. src/customer/customer.css
+   - Styles the connection warning/retry UI.
+
+4. src/customer/customer.js
+   - Detects DNS/network/timeout failures.
+   - Shows a non-blocking retry state instead of silently leaving Home blank.
+   - Hides the notice again when the API becomes reachable.
+
+Important:
+- This patch cannot bypass an ISP/DNS block. If Supabase is unreachable without VPN, the user may still need a working network path to Supabase.
+- No database tables, RPCs, RLS policies, or existing Home Content implementation were replaced.
+- The Supabase URL and publishable key were not changed.
