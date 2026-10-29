@@ -1,0 +1,15 @@
+/* H MARKET shared CSS foundation. */
+:root {
+  --hmarket-blue: #2563eb;
+  --hmarket-yellow: #facc15;
+  --hmarket-navy: #0f172a;
+  --hmarket-bg: #f8fafc;
+  --hmarket-card: #ffffff;
+  --hmarket-text: #0f172a;
+  --hmarket-muted: #64748b;
+  --hmarket-border: #e2e8f0;
+  --hmarket-radius: 16px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--hmarket-bg); color: var(--hmarket-text); }
+button, input, select, textarea { font: inherit; }

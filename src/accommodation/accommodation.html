@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Accommodation</title>
+<link rel="stylesheet" href="./accommodation.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div>
+    <div class="brand">H MARKET</div>
+    <div class="subtitle">🏨 Accommodation</div>
+  </div>
+</header>
+
+<main class="page">
+  <section class="toolbar">
+    <div>
+      <h1>🏨 Accommodation</h1>
+      <p>Hotel, Resort, Guesthouse and other stays</p>
+    </div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search property">
+      <select id="type">
+        <option value="">All Types</option>
+        <option>Hotel</option>
+        <option>Resort</option>
+        <option>Guesthouse</option>
+        <option>Hostel</option>
+        <option>Homestay</option>
+        <option>Serviced Apartment</option>
+        <option>Villa</option>
+        <option>Lodge</option>
+        <option>Other</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="location">
+    <span>📍</span>
+    <div><small>Location</small><strong>NyaungDon</strong></div>
+  </section>
+
+  <section class="section-head">
+    <h2>Places to Stay</h2>
+    <span id="count">0</span>
+  </section>
+
+  <section id="properties" class="grid"></section>
+
+  <section id="empty" class="empty hidden">
+    <div>🏨</div>
+    <strong>No accommodation found</strong>
+    <p>Approved accommodation partners will appear here.</p>
+  </section>
+</main>
+
+<script src="./accommodation.js"></script>
+</body>
+</html>

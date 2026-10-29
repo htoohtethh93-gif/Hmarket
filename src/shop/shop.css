@@ -1,0 +1,21 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Myanmar",sans-serif;background:#f5f7fb;color:#12233f}
+.shop-page{max-width:1100px;margin:auto;padding:16px 16px 90px}
+.shop-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.shop-top h1{margin:0;font-size:22px}.shop-top p{margin:3px 0 0;color:#718096;font-size:12px}
+.spacer{flex:1}.icon-btn{width:40px;height:40px;border:1px solid #dfe5ee;background:#fff;border-radius:12px;cursor:pointer;font-size:20px}
+.shop-tools{margin-bottom:10px}.shop-tools input{width:100%;padding:13px 15px;border:1px solid #dfe5ee;border-radius:14px;background:#fff;outline:none}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 1px 12px;white-space:nowrap}
+.chip{border:1px solid #dfe5ee;background:#fff;border-radius:999px;padding:9px 13px;cursor:pointer}
+.chip.active{background:#123b78;color:#fff;border-color:#123b78}
+.shop-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.shop-card{background:#fff;border:1px solid #e4e9f1;border-radius:17px;overflow:hidden;cursor:pointer;box-shadow:0 4px 15px rgba(15,35,70,.05)}
+.shop-img{height:145px;background:#e9eef6;display:grid;place-items:center;font-size:44px}
+.shop-img img{width:100%;height:100%;object-fit:cover}
+.shop-body{padding:12px}.shop-name{font-weight:800;font-size:15px}.meta{color:#718096;font-size:11px;margin-top:5px;line-height:1.5}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:8px}.rating{font-size:11px;font-weight:800}.open{font-size:10px;color:#198754;font-weight:800}
+.empty{text-align:center;padding:60px 15px;color:#718096}.empty-icon{font-size:44px}.empty h2{color:#243b5a;font-size:18px}.empty p{font-size:12px}.hidden{display:none}
+@media(max-width:800px){.shop-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.shop-page{padding:10px 10px 80px}.shop-list{gap:8px}.shop-img{height:105px}.shop-body{padding:9px}.shop-name{font-size:13px}}
+.bottom-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(100%,1100px);height:70px;background:#fff;border-top:1px solid #e6ebf3;display:flex;justify-content:space-around;align-items:center;z-index:9999;padding-bottom:env(safe-area-inset-bottom)}
+.bottom-nav .nav-item{flex:1;text-align:center;text-decoration:none;color:#52627d;font-size:22px;line-height:1.1}.bottom-nav .nav-item span{display:block;font-size:11px;margin-top:4px;font-weight:700}.bottom-nav .nav-item:hover{color:#123b78}

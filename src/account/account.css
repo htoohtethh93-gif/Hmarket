@@ -1,0 +1,41 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7fb;color:#10233f;font-family:Arial,"Noto Sans Myanmar",sans-serif;min-height:100vh;padding-bottom:80px}
+.account-page{width:min(1180px,100%);margin:auto;padding:16px 14px 96px}
+.account-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}.account-top h1{margin:0;font-size:22px}.account-top p{margin:3px 0;color:#748198;font-size:12px}
+.icon-btn{width:40px;height:40px;border:1px solid #dfe5ee;background:#fff;border-radius:12px;cursor:pointer;font-size:20px}
+.profile-card,.card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:14px;margin-bottom:12px;box-shadow:0 4px 16px rgba(20,40,70,.04)}
+.profile-card{display:flex;gap:12px;align-items:center}.avatar{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#123b78;color:#fff;font-weight:800;font-size:20px;overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}.profile-copy h2{margin:0;font-size:18px}.profile-copy p{margin:4px 0 0;color:#718096;font-size:12px}
+.card h3{margin:2px 0 10px;font-size:15px}.account-row{display:flex;align-items:center;gap:10px;width:100%;border:0;border-top:1px solid #edf0f5;background:#fff;padding:13px 4px;text-align:left;font-size:14px;cursor:pointer}.account-row:first-of-type{border-top:0}.account-row span{flex:1}.account-row b{color:#9aa5b5;font-size:18px}.account-row.primary{color:#123b78;font-weight:800}.account-row.danger{color:#c0392b}.partner-note{color:#718096;font-size:12px;padding:5px 2px 10px}.hidden{display:none}
+@media(max-width:480px){.account-page{padding:10px 10px 96px}}
+
+
+.bottom-nav{
+ position:fixed;
+ left:50%;
+ bottom:0;
+ transform:translateX(-50%);
+ width:min(1180px,100%);
+ height:68px;
+ background:#fff;
+ border-top:1px solid #e5eaf2;
+ display:flex;
+ justify-content:space-around;
+ align-items:center;
+ z-index:999;
+ box-shadow:0 -4px 18px rgba(20,40,70,.08);
+}
+.nav-item{
+ text-decoration:none;
+ color:#64748b;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap:3px;
+ font-size:12px;
+}
+.nav-item span{font-size:25px;line-height:1}
+.nav-item small{font-size:12px}
+.nav-item.active{color:#1554b8;font-weight:700}
+@media(max-width:480px){
+ .bottom-nav{height:64px}
+}

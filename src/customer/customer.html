@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="my">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2e6f">
+  <meta name="description" content="H MARKET – Digital Online Shop">
+  <link rel="manifest" href="../manifest.json">
+  <title>H MARKET – Customer</title>
+  <link rel="stylesheet" href="customer.css">
+    <script src="../shared/config.js" defer></script>
+    <script src="../shared/supabase.js" defer></script>
+    <script src="../shared/services-config.js" defer></script>
+    <script src="../shared/home-core.js" defer></script>
+    <script src="../shared/auth.js" defer></script>
+    <script src="customer.js" defer></script>
+</head>
+<body><div data-supabase-status style="position:fixed;right:12px;bottom:12px;z-index:9999;padding:6px 9px;border:1px solid #e6e9ef;border-radius:999px;background:#fff;font:11px system-ui;color:#6f7c91">Supabase: setup required</div>
+  <div class="app">
+  <div class="location-modal" id="locationModal" hidden><div class="location-backdrop" data-location-close></div><div class="location-dialog"><button class="auth-close" type="button" data-location-close>×</button><h3>Location ရွေးပါ</h3><small>Location မရွေးထားရင် သင့်မြို့တွင် H MARKET ရရှိလာချိန်ကို စောင့်ပါ။</small><div class="location-list" id="locationList"><button class="location-option" data-location="">🌐 All Locations · Default</button></div></div></div>
+    <header class="top">
+      <div class="top-inner">
+        <div class="brand-row">
+          <div class="brand">
+            <img src="../assets/h-market-logo.png" alt="H MARKET logo">
+            <div class="brand-copy"><div class="brand-name">H MARKET</div><div class="brand-sub">Digital Online Shop</div></div>
+          </div>
+          <div class="search-row">
+            <label class="search" aria-label="Search">🔎<input id="globalSearch" type="search" placeholder="ရှာဖွေပါ... (ဆိုင်၊ အစားအစာ၊ ဟိုတယ်...)" autocomplete="off"></label>
+            <button class="icon-btn search-toggle" id="searchBtn" type="button" aria-label="Search" aria-expanded="false">⌕</button>
+          </div>
+          <button class="location location-compact" id="locationBtn" type="button">📍 <span id="locationLabel">Location</span>⌄</button>
+          <div class="social-links" aria-label="Social Links">
+            <a href="#" id="facebookLink" aria-label="Facebook">f</a>
+            <a href="#" id="tiktokLink" aria-label="TikTok">♪</a>
+            <a href="#" id="youtubeLink" aria-label="Youtube">▶</a>
+          </div>
+          <button class="icon-btn" id="notificationBtn" type="button" aria-label="Notifications">🔔<span class="badge" id="notificationBadge" style="display:none">0</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div id="connectionNotice" class="connection-notice" hidden role="status" aria-live="polite">
+        <div class="connection-notice-icon">⚠️</div>
+        <div class="connection-notice-copy">
+          <strong>H MARKET server ကို လောလောဆယ် မဆက်သွယ်နိုင်ပါ</strong>
+          <span>Internet / network connection ကို စစ်ပြီး Retry လုပ်ပါ။</span>
+        </div>
+        <button id="connectionRetry" type="button">Retry</button>
+      </div>
+      <section id="home" class="screen active">
+        <div id="homeSectionsContainer" class="home-sections-container"></div>
+      </section>
+
+      <section id="categories" class="screen">
+        <div class="screen-title"><button data-nav="home">←</button><h2>Categories</h2></div>
+        <div class="list" id="categoryList"></div>
+      </section>
+
+      <section id="shops" class="screen">
+        <div class="screen-title"><button data-nav="home">←</button><h2 id="shopsTitle">Shops</h2></div>
+        <div class="subtle" id="shopsSub">NyaungDon</div>
+        <div class="chips" id="shopChips"></div>
+        <div class="list" id="shopList"></div>
+      </section>
+
+      <section id="featured" class="screen">
+        <div class="screen-title"><button data-nav="home">←</button><h2>⭐ Featured</h2></div>
+        <p class="subtle" id="featuredSub">ရွေးထားသော Active Location အတွက် Featured Shops</p>
+        <div class="featured-page-list home-carousel" id="featuredPageList"></div>
+        <div class="empty compact-empty" id="featuredEmpty" hidden>ဒီ Location မှာ Featured Shop မရှိသေးပါ။</div>
+      </section>
+
+      <section id="shopDetail" class="screen">
+        <div class="screen-title"><button data-nav="shops">←</button><h2 id="detailTitle">Shop</h2></div>
+        <div class="shop-head" id="shopHead"></div>
+        <div class="chips" id="productChips"></div>
+        <div class="product-list" id="productList"></div>
+      </section>
+
+      <section id="buyer" class="screen">
+        <div class="screen-title"><button data-nav="home">←</button><h2>အဝယ်တော်</h2></div>
+        <p class="subtle" style="margin-left:46px">ကိုယ်တိုင်ဈေးမသွားနိုင်တဲ့အခါ လိုအပ်တာကို အဝယ်တော်ထံ ပို့ခိုင်းနိုင်ပါသည်။</p>
+        <div class="shop-head" style="margin-bottom:12px"><div class="shop-head-top"><div class="shop-logo">🛍️</div><div><h3>အဝယ်တော် ဝန်ဆောင်မှု</h3><p>ရွာဘက် / မြို့ပြင်ကနေ မြို့ထဲဈေးဝယ်ပေးရန်</p></div></div></div>
+        <div class="buyer-limit-card" id="buyerLimitCard"><div class="buyer-limit-row normal"><span>🟢 ပုံမှန် Customer</span><strong>≤ 50,000 MMK</strong></div><div class="buyer-limit-row verified"><span>🟡 Verified Customer</span><strong>≤ 100,000 MMK</strong></div><small>သတ်မှတ်ထားသော အများဆုံးဝယ်ယူတန်ဖိုးထက် ပို၍ Request တင်လို့မရပါ။</small></div>
+        <form class="service-form" id="buyerForm">
+          <label>ဘာဝယ်ပေးရမလဲ?<input name="item" required placeholder="ဥပမာ - ဆန်၊ ဆေး၊ အစားအစာ..." /></label>
+          <label>ဘယ်ကနေ ဝယ်ပေးရမလဲ?<input name="shop" placeholder="ဆိုင် / ဈေးအမည်" /></label>
+          <label>ခန့်မှန်းဝယ်ယူတန်ဖိုး (MMK)<input name="amount" required inputmode="numeric" placeholder="ဥပမာ - 50000" /></label>
+          <label>Payment Method<select name="payment_method" required><option value="KPay">KPay</option><option value="Wave Money">Wave Money</option><option value="Cash">Cash</option></select></label>
+          <label>ပို့ရမည့်နေရာ<input name="address" required placeholder="လိပ်စာ / ရပ်ကွက် / ကျေးရွာ" /></label>
+          <label>ဆက်သွယ်ရန် ဖုန်း<input name="phone" required inputmode="tel" placeholder="09xxxxxxxxx" /></label>
+          <label>အပိုဆောင်းအချက်အလက်<textarea name="note" placeholder="အရောင်၊ အရွယ်၊ အရေအတွက် စသည်ဖြင့်..." ></textarea></label>
+          <div class="rider-payment-card" id="riderPaymentCard" hidden><b>🛵 လက်ခံထားသော Rider ၏ Payment Account</b><div id="riderPaymentInfo"></div></div>
+          <button class="primary" type="submit">အဝယ်တော် Request ပို့မည် →</button>
+        </form>
+      </section>
+
+      <section id="support" class="screen">
+        <div class="screen-title"><button data-nav="home">←</button><h2>Customer Support</h2></div>
+        <p class="subtle">H MARKET အသုံးပြုရာတွင် အကူအညီလိုပါက အောက်ပါအမျိုးအစားကို ရွေးပါ။</p>
+        <div class="support-list">
+          <button class="support-option" data-support="feedback"><div class="ico">📝</div><div><b>Report Feedback</b><small>အကြံပြုချက်၊ တိုင်ကြားချက် သို့မဟုတ် ပြဿနာကို ပေးပို့ရန်</small></div><span class="chev">›</span></button>
+          <button class="support-option" data-support="chat"><div class="ico">💬</div><div><b>Live Chat</b><small>Customer Support Team နဲ့ တိုက်ရိုက်ဆက်သွယ်ရန်</small></div><span class="chev">›</span></button>
+        </div>
+      </section>
+
+      <section id="cart" class="screen">
+        <div class="screen-title"><button data-nav="home">←</button><h2>Cart</h2></div>
+        <div id="cartContent"></div>
+      </section>
+
+            <section id="notifications" class="screen">
+        <div class="screen-title"><button data-nav="home">←</button><h2>Notifications</h2><button id="markAllNotifications" type="button" style="margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;color:var(--navy);font-size:11px;font-weight:800">Mark all read</button></div>
+        <div class="notification-screen" id="notificationList"><div class="notification-empty">Notification မရှိသေးပါ။</div></div>
+      </section>
+
+<section id="account" class="screen">
+        <div class="screen-title"><h2>Account</h2><button aria-label="Settings">⚙️</button></div>
+        <div class="account-card" id="accountCard">
+          <div class="profile"><div class="avatar" id="accountAvatar">?</div><div><h3 id="accountName">Guest</h3><p id="accountRole">Login to your H MARKET account</p></div></div>
+          <div class="account-list account-main" id="guestAccountActions">
+            <button class="account-btn" data-auth-open="login"><span>🔐 Login</span><span>›</span></button>
+            <button class="account-btn" data-auth-open="register"><span>📝 Create Account</span><span>›</span></button>
+            <div class="account-join">
+              <div class="account-join-title">🤝 Join H MARKET</div>
+              <div class="account-list account-join-list">
+                <div id="dynamicPartnerServices"></div>
+              </div>
+            </div>
+          </div>
+          <div class="account-list" id="signedInAccountActions" style="display:none">
+            <button class="account-btn"><span>📦 My Orders</span><span>›</span></button>
+            <button class="account-btn"><span>❤️ Favorites</span><span>›</span></button>
+            <button class="account-btn"><span>📍 Addresses</span><span>›</span></button>
+            <button class="account-btn"><span>💳 Payment Methods</span><span>›</span></button>
+            <button class="account-btn" data-nav="notifications"><span>🔔 Notifications</span><span>›</span></button>
+            <button class="account-btn" id="logoutBtn"><span>🚪 Logout</span><span>›</span></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="cart-bar" id="cartBar"><div><strong id="cartCount">0 Items</strong><div id="cartTotal" style="font-size:11px;opacity:.85">0 Ks</div></div><button data-nav="cart">Cart →</button></div>
+    <nav class="bottom-nav" aria-label="Primary navigation">
+      <button class="nav-item active" data-nav="home"><span class="nav-icon">🏠</span>Home</button>
+      <button class="nav-item" data-nav="shops"><span class="nav-icon">🛍️</span>Shop</button>
+      <button class="nav-item" data-nav="cart"><span class="nav-icon">🛒</span>Cart<span class="badge" id="navBadge" style="display:none;right:24px;top:9px">0</span></button>
+      <button class="nav-item" data-nav="account"><span class="nav-icon premium-account-icon">♙</span>Account</button>
+    </nav>
+
+    <div class="auth-choice-modal" id="authChoiceModal" hidden>
+      <div class="auth-choice-backdrop" data-auth-choice-close></div>
+      <div class="auth-choice-dialog">
+        <button class="auth-close" type="button" data-auth-choice-close>×</button>
+        <div class="auth-choice-icon">🔐</div>
+        <h3>Please Login or Create Account</h3>
+        <p>ဒီလုပ်ဆောင်ချက်ကို အသုံးပြုရန် H MARKET account ဝင်ထားရန် လိုအပ်ပါသည်။</p>
+        <div class="auth-choice-actions">
+          <button class="primary" type="button" id="authChoiceLogin">Login</button>
+          <button class="auth-secondary" type="button" id="authChoiceRegister">Create Account</button>
+        </div>
+      </div>
+    </div>
+    <div class="auth-modal" id="authModal" hidden>
+      <div class="auth-backdrop" data-auth-close></div>
+      <div class="auth-dialog">
+        <button class="auth-close" data-auth-close>×</button>
+        <h3 id="authTitle">H MARKET</h3>
+        <p id="authMessage" class="auth-message"></p>
+        <form id="authForm">
+          <div class="auth-fields" id="authFields"></div>
+          <button class="btn primary auth-submit" id="authSubmit" type="submit">Continue</button>
+        </form>
+      </div>
+    </div>
+    <div class="support-modal" id="feedbackModal" hidden>
+      <div class="support-backdrop" data-support-close></div>
+      <div class="support-dialog">
+        <button class="support-close" type="button" data-support-close>×</button>
+        <h3>Report Feedback</h3>
+        <div class="support-meta">Ticket ID ဖန်တီးပြီး H MARKET Support Team ထံ ပို့ပေးပါမည်။</div>
+        <form class="support-form" id="feedbackForm">
+          <label>Subject<input name="subject" required placeholder="ပြဿနာအကြောင်းအရာ"></label>
+          <label>Category<select name="category" required><option value="Order">Order</option><option value="Shop">Shop</option><option value="Rider">Rider</option><option value="Payment">Payment</option><option value="Other">Other</option></select></label>
+          <label>Order No. (Optional)<input name="order_no" placeholder="ဥပမာ #10025"></label>
+          <label>Message<textarea name="message" required placeholder="ပြဿနာ / အကြံပြုချက်ကို ရေးပါ"></textarea></label>
+          <label>Photo (Optional)<input type="file" name="photo" accept="image/*"></label>
+          <button class="primary" type="submit">Submit Feedback →</button>
+        </form>
+      </div>
+    </div>
+    <div class="support-modal" id="chatModal" hidden>
+      <div class="support-backdrop" data-support-close></div>
+      <div class="support-dialog">
+        <button class="support-close" type="button" data-support-close>×</button>
+        <h3>Live Chat <span class="support-status">● Support Online</span></h3>
+        <div class="support-meta">Support Team သို့ တိုက်ရိုက်စာပို့နိုင်ပါသည်။</div>
+        <div class="chat-box" id="chatMessages"><div class="chat-msg support">မင်္ဂလာပါ။ H MARKET Support Team ပါ။ ဘာကူညီပေးရမလဲ?</div></div>
+        <form class="chat-compose" id="chatForm"><input name="message" required placeholder="စာရေးပါ…"><button type="submit">Send</button></form>
+      </div>
+    </div>
+    <div class="terms-modal" id="termsModal" hidden>
+      <div class="terms-backdrop" data-terms-close></div>
+      <div class="terms-dialog">
+        <button class="auth-close" type="button" data-terms-close>×</button>
+        <h3 id="termsTitle">H MARKET Terms & Regulations</h3>
+        <p class="terms-note">အောက်ဆုံးအထိ ဖတ်ပြီးမှ သဘောတူရန် ခလုတ်ကို နှိပ်နိုင်ပါမည်။</p>
+        <div class="terms-body" id="termsBody"></div>
+        <div class="terms-footer"><button class="terms-agree" id="termsAgreeBtn" type="button" disabled>Agree & Continue</button></div>
+      </div>
+    </div>
+    <div class="toast" id="toast" aria-live="polite"></div>
+  </div>
+
+
+
+<script id="hmarket-main-category-layout-patch">
+(function(){
+  // Main Home Categories intentionally exclude services shown again in the lower feature area.
+  // Keep the full category list intact on the dedicated Categories screen.
+  const HIDE = new Set(['hotel & stay','market']);
+  function cleanHomeCategories(){
+    document.querySelectorAll('#homeSectionsContainer .cat-grid .cat').forEach(card=>{
+      const key=(card.getAttribute('data-category')||'').trim().toLowerCase();
+      const text=(card.textContent||'').trim().toLowerCase();
+      const shouldHide=HIDE.has(key) || (key==='' && (text.startsWith('hotel & stay') || text.startsWith('market')));
+      card.hidden=shouldHide;
+    });
+  }
+  const root=document.getElementById('homeSectionsContainer');
+  if(root){
+    new MutationObserver(cleanHomeCategories).observe(root,{childList:true,subtree:true});
+    cleanHomeCategories();
+  }
+})();
+</script>
+<script id="hmarket-admin-preview-extension">
+(function(){const p=new URLSearchParams(location.search);if(p.get('hm_preview')!=='1')return;const b=document.createElement('div');b.className='admin-preview-bar';b.innerHTML='<strong>H MARKET User Preview</strong><span>Admin session stays signed in</span><button type="button" id="backToAdminPreview">← Back to Admin</button>';document.body.appendChild(b);const st=document.createElement('style');st.textContent='.admin-preview-bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:100001;display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:12px;background:#0b2e6f;color:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18);font:600 12px system-ui}.admin-preview-bar span{font-size:10px;opacity:.85}.admin-preview-bar button{border:1px solid rgba(255,255,255,.25);border-radius:9px;background:#fff;color:#0b2e6f;padding:7px 10px;font-weight:900;cursor:pointer}@media(max-width:700px){.admin-preview-bar{width:calc(100% - 20px);justify-content:space-between}.admin-preview-bar span{display:none}}';document.head.appendChild(st);document.getElementById('backToAdminPreview')?.addEventListener('click',()=>location.href='admin.html')})();
+</script>
+</body>
+</html>
+
+// Partner Services Realtime Sync
+if(window.HMARKET_SERVICES?.subscribePartnerServices){
+  window.HMARKET_SERVICES.subscribePartnerServices(async ()=>{
+    const box=document.querySelector('#accountPartnerServices');
+    if(box && window.HMARKET_SERVICES){
+      const services=await window.HMARKET_SERVICES.loadPartnerServices();
+      box.innerHTML=services.map(x=>`<button class="partner-btn">${x.icon||'🤝'} ${x.name}</button>`).join('');
+    }
+  });
+}
+

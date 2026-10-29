@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Rider</title>
+<link rel="stylesheet" href="./rider.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div><div class="brand">H MARKET</div><div class="subtitle">🛵 Rider Center</div></div>
+</header>
+
+<main class="page">
+  <section class="welcome">
+    <div><span class="eyebrow">RIDER CENTER</span><h1>Welcome, Rider 👋</h1><p>Jobs, delivery status, earnings and rider performance.</p></div>
+    <div class="online"><span></span><b>Online</b></div>
+  </section>
+
+  <section class="kpis">
+    <article><span>📦</span><small>Today's Jobs</small><strong>0</strong></article>
+    <article><span>💰</span><small>Today's Earnings</small><strong>0 MMK</strong></article>
+    <article><span>🎯</span><small>Points</small><strong>0</strong></article>
+    <article><span>⭐</span><small>Rating</small><strong>—</strong></article>
+  </section>
+
+  <section class="layout">
+    <aside class="sidebar">
+      <button class="nav active" data-panel="dashboard">🏠 Dashboard</button>
+      <button class="nav" data-panel="jobs">📦 Available Jobs</button>
+      <button class="nav" data-panel="active">🚚 Active Delivery</button>
+      <button class="nav" data-panel="history">🧾 Delivery History</button>
+      <button class="nav" data-panel="earnings">💰 Earnings</button>
+      <button class="nav" data-panel="points">🎯 Points / Target</button>
+      <button class="nav" data-panel="ratings">⭐ Ratings</button>
+      <button class="nav" data-panel="notifications">🔔 Notifications</button>
+      <button class="nav" data-panel="profile">👤 Profile</button>
+      <button class="nav" data-panel="settings">⚙️ Settings</button>
+      <button class="nav logout" data-panel="logout">🚪 Logout</button>
+    </aside>
+
+    <section class="workspace">
+      <div id="dashboard" class="panel active">
+        <div class="panel-head"><div><h2>Dashboard</h2><p>Today's rider activity at a glance.</p></div><button class="primary" onclick="openPanel('jobs')">Find Jobs</button></div>
+        <div class="flow"><span>Job</span><i>→</i><span>Accept</span><i>→</i><span>Pickup</span><i>→</i><span>Delivering</span><i>→</i><span>Delivered</span></div>
+        <div class="cards">
+          <div class="box"><b>Available Jobs</b><strong>0</strong><span>Jobs you can accept</span></div>
+          <div class="box"><b>Active Delivery</b><strong>0</strong><span>Current delivery</span></div>
+          <div class="box"><b>Completed</b><strong>0</strong><span>Completed today</span></div>
+        </div>
+      </div>
+
+      <div id="jobs" class="panel">
+        <div class="panel-head"><div><h2>Available Jobs</h2><p>Jobs appear after the seller marks an order READY.</p></div><button class="secondary">↻ Refresh</button></div>
+        <div class="job">
+          <div class="job-icon">📦</div><div class="job-main"><b>No real jobs yet</b><span>Customer order → Seller READY → Rider Job</span><small>Pickup and delivery details will appear here.</small></div>
+          <button class="primary" disabled>Accept</button>
+        </div>
+        <div class="notice">The real job list will connect to <b>orders</b>, <b>deliveries</b> and rider assignment data later.</div>
+      </div>
+
+      <div id="active" class="panel">
+        <div class="panel-head"><div><h2>Active Delivery</h2><p>Update each delivery step and ETA.</p></div></div>
+        <div class="status-list">
+          <div class="status done"><span>1</span><b>Accepted</b><small>Rider accepted the job</small></div>
+          <div class="status"><span>2</span><b>Pickup</b><small>Arrive at shop and pick up order</small></div>
+          <div class="status"><span>3</span><b>Delivering</b><small>Customer can see delivery status / ETA</small></div>
+          <div class="status"><span>4</span><b>Delivered</b><small>Complete the delivery</small></div>
+        </div>
+        <div class="actions"><button class="secondary">📍 Open Map</button><button class="primary">Update Status</button></div>
+      </div>
+
+      <div id="history" class="panel">
+        <div class="panel-head"><div><h2>Delivery History</h2><p>Keep delivery records for long-term accounting.</p></div></div>
+        <div class="filters"><button>Today</button><button>This Week</button><button>This Month</button><button>Last Month</button><button>Last 3 Months</button><button>Custom Date</button></div>
+        <div class="empty">No delivery history connected yet.</div>
+      </div>
+
+      <div id="earnings" class="panel">
+        <div class="panel-head"><div><h2>Earnings</h2><p>Delivery fees, commissions and settlement records.</p></div></div>
+        <div class="cards"><div class="box"><b>Delivery Earnings</b><strong>0 MMK</strong></div><div class="box"><b>Bonus</b><strong>0 MMK</strong></div><div class="box"><b>Withdrawable</b><strong>0 MMK</strong></div></div>
+        <div class="notice">Real settlement will connect to rider payment accounts and wallet records later.</div>
+      </div>
+
+      <div id="points" class="panel">
+        <div class="panel-head"><div><h2>Points / Target</h2><p>Rider points, targets and year-end bonus tracking.</p></div></div>
+        <div class="target"><div><b>Monthly Target</b><strong>0 / 100 jobs</strong></div><div class="bar"><i></i></div></div>
+        <div class="notice">Target rules and year-end bonus calculations will be controlled by admin rules later.</div>
+      </div>
+
+      <div id="ratings" class="panel">
+        <div class="panel-head"><div><h2>Ratings</h2><p>Customer ratings and delivery feedback.</p></div></div>
+        <div class="empty">No ratings yet.</div>
+      </div>
+
+      <div id="notifications" class="panel">
+        <div class="panel-head"><div><h2>Notifications</h2><p>New jobs, status changes and system notices.</p></div></div>
+        <div class="empty">No notifications.</div>
+      </div>
+
+      <div id="profile" class="panel">
+        <div class="panel-head"><div><h2>Profile</h2><p>Rider contact and vehicle information.</p></div><button class="primary">Edit</button></div>
+        <div class="form-grid">
+          <label>Name<input placeholder="Rider name"></label>
+          <label>Phone<input placeholder="Phone"></label>
+          <label>Vehicle Type<input placeholder="Motorbike / Car / etc."></label>
+          <label>Vehicle Number<input placeholder="Vehicle number"></label>
+          <label class="wide">Address<input placeholder="Address"></label>
+        </div>
+      </div>
+
+      <div id="settings" class="panel">
+        <div class="panel-head"><div><h2>Settings</h2><p>Rider preferences.</p></div></div>
+        <div class="setting-list"><div>🌐 Language <span>မြန်မာ / English</span></div><div>🔔 Notifications <span>On</span></div><div>📍 Location sharing <span>Controlled during active delivery</span></div></div>
+      </div>
+
+      <div id="logout" class="panel"><div class="empty"><h2>Logout</h2><p>Logout will connect to the shared H MARKET authentication module.</p><button class="primary">Logout</button></div></div>
+    </section>
+  </section>
+</main>
+<script src="./rider.js"></script>
+</body>
+</html>

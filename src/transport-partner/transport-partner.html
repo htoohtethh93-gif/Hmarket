@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Transport Partner</title>
+<link rel="stylesheet" href="./transport-partner.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div><div class="brand">H MARKET</div><div class="subtitle">🚕 Transport Partner</div></div>
+</header>
+
+<main class="page">
+  <section class="welcome">
+    <div><span class="eyebrow">TRANSPORT PARTNER CENTER</span><h1>Transport Service Partner 👋</h1><p>Manage vehicles, routes, schedules, fares and transport bookings.</p></div>
+    <div class="status"><span></span> Partner Status</div>
+  </section>
+
+  <section class="kpis">
+    <article><span>🚗</span><small>Vehicles</small><strong>0</strong></article>
+    <article><span>🛣️</span><small>Routes / Services</small><strong>0</strong></article>
+    <article><span>🎫</span><small>Today's Bookings</small><strong>0</strong></article>
+    <article><span>💰</span><small>Today's Sales</small><strong>0 MMK</strong></article>
+  </section>
+
+  <section class="layout">
+    <aside class="sidebar">
+      <button class="nav active" data-panel="dashboard">🏠 Dashboard</button>
+      <button class="nav" data-panel="vehicles">🚗 Vehicles</button>
+      <button class="nav" data-panel="services">🧾 Services</button>
+      <button class="nav" data-panel="routes">🛣️ Routes</button>
+      <button class="nav" data-panel="schedules">🕐 Schedules</button>
+      <button class="nav" data-panel="bookings">🎫 Bookings</button>
+      <button class="nav" data-panel="earnings">💰 Earnings / Settlement</button>
+      <button class="nav" data-panel="ratings">⭐ Ratings</button>
+      <button class="nav" data-panel="notifications">🔔 Notifications</button>
+      <button class="nav" data-panel="profile">🏢 Partner Profile</button>
+      <button class="nav" data-panel="settings">⚙️ Settings</button>
+      <button class="nav logout" data-panel="logout">🚪 Logout</button>
+    </aside>
+
+    <section class="workspace">
+      <div id="dashboard" class="panel active">
+        <div class="panel-head"><div><h2>Dashboard</h2><p>Transport business overview.</p></div><button class="primary" onclick="openPanel('vehicles')">Manage Vehicles</button></div>
+        <div class="flow"><span>Service</span><i>→</i><span>Route</span><i>→</i><span>Schedule</span><i>→</i><span>Booking</span><i>→</i><span>Completed</span></div>
+        <div class="cards">
+          <div class="box"><b>Active Vehicles</b><strong>0</strong><span>Vehicles available</span></div>
+          <div class="box"><b>Today's Bookings</b><strong>0</strong><span>New bookings</span></div>
+          <div class="box"><b>Sales Today</b><strong>0 MMK</strong><span>Transport sales</span></div>
+        </div>
+      </div>
+
+      <div id="vehicles" class="panel">
+        <div class="panel-head"><div><h2>Vehicles</h2><p>Add vehicle photos, type, registration and service details.</p></div><button class="primary">+ Add Vehicle</button></div>
+        <div class="vehicle-types"><span>🚗 Car</span><span>🏍️ Motorbike</span><span>🚌 Bus</span><span>🚕 Taxi / Carrier</span><span>🛺 Three-wheel</span><span>⛴️ Ferry / Boat</span></div>
+        <div class="notice">Vehicle records will connect to the partner vehicle data layer later.</div>
+      </div>
+
+      <div id="services" class="panel">
+        <div class="panel-head"><div><h2>Services</h2><p>Publish the transportation services customers can book.</p></div><button class="primary">+ Add Service</button></div>
+        <div class="service-grid">
+          <label><input type="checkbox" checked> Car Order</label>
+          <label><input type="checkbox" checked> Motorbike Ride</label>
+          <label><input type="checkbox" checked> Bus / Line Bus</label>
+          <label><input type="checkbox" checked> Carrier / Taxi</label>
+          <label><input type="checkbox" checked> Three-wheel / Oway</label>
+          <label><input type="checkbox"> Ferry / Boat</label>
+          <label><input type="checkbox"> Other</label>
+        </div>
+      </div>
+
+      <div id="routes" class="panel">
+        <div class="panel-head"><div><h2>Routes</h2><p>Manage origin, destination and route information.</p></div><button class="primary">+ Add Route</button></div>
+        <div class="route-card"><b>NyaungDon → Yangon</b><span>Route service · Active</span></div>
+        <div class="route-card"><b>NyaungDon → Pathein</b><span>Route service · Active</span></div>
+        <div class="notice">Routes can later be linked to H MARKET active locations.</div>
+      </div>
+
+      <div id="schedules" class="panel">
+        <div class="panel-head"><div><h2>Schedules</h2><p>Departure time, operating days and availability.</p></div><button class="primary">+ Add Schedule</button></div>
+        <div class="schedule"><b>08:00</b><span>NyaungDon → Yangon</span><em>Daily</em></div>
+        <div class="schedule"><b>14:30</b><span>NyaungDon → Pathein</span><em>Mon–Sun</em></div>
+      </div>
+
+      <div id="bookings" class="panel">
+        <div class="panel-head"><div><h2>Bookings</h2><p>Customer transport bookings and booking status.</p></div><button class="secondary">↻ Refresh</button></div>
+        <div class="booking-flow"><span>New</span><i>→</i><span>Confirmed</span><i>→</i><span>Ready</span><i>→</i><span>Completed</span></div>
+        <div class="empty">No real bookings connected yet.</div>
+      </div>
+
+      <div id="earnings" class="panel">
+        <div class="panel-head"><div><h2>Earnings / Settlement</h2><p>Transport sales, commission and settlement records.</p></div></div>
+        <div class="cards"><div class="box"><b>Gross Sales</b><strong>0 MMK</strong></div><div class="box"><b>Commission</b><strong>0 MMK</strong></div><div class="box"><b>Withdrawable</b><strong>0 MMK</strong></div></div>
+        <div class="notice">Real payment and settlement will connect later.</div>
+      </div>
+
+      <div id="ratings" class="panel">
+        <div class="panel-head"><div><h2>Ratings</h2><p>Customer feedback for transport services.</p></div></div>
+        <div class="empty">No ratings yet.</div>
+      </div>
+
+      <div id="notifications" class="panel">
+        <div class="panel-head"><div><h2>Notifications</h2><p>Booking, service and system notifications.</p></div></div>
+        <div class="empty">No notifications.</div>
+      </div>
+
+      <div id="profile" class="panel">
+        <div class="panel-head"><div><h2>Partner Profile</h2><p>Company, gate, operator or transport partner information.</p></div><button class="primary">Edit</button></div>
+        <div class="form-grid">
+          <label>Partner / Company Name<input placeholder="Company / gate / operator name"></label>
+          <label>Partner Type<select><option>Bus Company</option><option>Bus Gate</option><option>Taxi / Carrier</option><option>Car Service</option><option>Motorbike Service</option><option>Three-wheel Service</option><option>Ferry / Boat Operator</option><option>Other</option></select></label>
+          <label>Contact Person<input placeholder="Contact person"></label>
+          <label>Phone<input placeholder="Phone"></label>
+          <label>Email<input placeholder="Email"></label>
+          <label class="wide">Address / Base Location<input placeholder="Base location"></label>
+          <label class="wide">Description<textarea placeholder="Transport service description"></textarea></label>
+        </div>
+      </div>
+
+      <div id="settings" class="panel">
+        <div class="panel-head"><div><h2>Settings</h2><p>Transport partner preferences.</p></div></div>
+        <div class="setting-list"><div>🌐 Language <span>မြန်မာ / English</span></div><div>🔔 Notifications <span>On</span></div><div>🟢 Service Availability <span>Controlled by partner/admin</span></div></div>
+      </div>
+
+      <div id="logout" class="panel"><div class="empty"><h2>Logout</h2><p>Logout will connect to the shared H MARKET authentication module.</p><button class="primary">Logout</button></div></div>
+    </section>
+  </section>
+</main>
+<script src="./transport-partner.js"></script>
+</body>
+</html>

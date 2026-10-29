@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>H MARKET — Notifications V1</title>
+  <link rel="stylesheet" href="./notifications.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">H MARKET</div>
+      <div class="subtitle">Notifications · V1 Scaffold</div>
+    </div>
+    <div class="top-actions">
+      <button class="ghost" id="markAllRead">Mark all read</button>
+      <button class="primary" id="newNotification">New Notification</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">NOTIFICATION CENTER</span>
+        <h1>Notifications</h1>
+        <p>UI/scaffold only. Existing notification data can be connected later.</p>
+      </div>
+      <div class="status-pill"><span></span> V1 UI Mode</div>
+    </section>
+
+    <nav class="tabs" aria-label="Notification modules">
+      <button class="tab active" data-view="dashboard">Dashboard</button>
+      <button class="tab" data-view="inbox">Inbox</button>
+      <button class="tab" data-view="orders">Order Notifications</button>
+      <button class="tab" data-view="partners">Partner Notifications</button>
+      <button class="tab" data-view="payments">Payment Notifications</button>
+      <button class="tab" data-view="promotions">Promotions</button>
+      <button class="tab" data-view="system">System Notifications</button>
+      <button class="tab" data-view="templates">Notification Templates</button>
+      <button class="tab" data-view="channels">Notification Channels</button>
+      <button class="tab" data-view="settings">Settings</button>
+    </nav>
+
+    <section id="view-dashboard" class="view active">
+      <div class="stats">
+        <article class="stat"><span>Total</span><strong id="totalCount">12</strong><small>Demo notifications</small></article>
+        <article class="stat"><span>Unread</span><strong id="unreadCount">5</strong><small>Needs attention</small></article>
+        <article class="stat"><span>Orders</span><strong>6</strong><small>Order lifecycle</small></article>
+        <article class="stat"><span>Partners</span><strong>3</strong><small>Partner updates</small></article>
+        <article class="stat"><span>Payments</span><strong>3</strong><small>Payment events</small></article>
+      </div>
+
+      <div class="grid">
+        <section class="card">
+          <div class="card-head"><div><h2>Recent Notifications</h2><p>Demo data only</p></div><button class="link-btn" data-open="inbox">Open Inbox →</button></div>
+          <div id="recentList" class="notification-list"></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><div><h2>Channels</h2><p>Integration status</p></div><button class="link-btn" data-open="channels">Manage →</button></div>
+          <div class="channel-summary">
+            <div><span>In-App</span><b class="enabled">Ready</b></div>
+            <div><span>Email</span><b>Later</b></div>
+            <div><span>Push</span><b>Later</b></div>
+            <div><span>Telegram</span><b>Later</b></div>
+            <div><span>Viber</span><b>Later</b></div>
+            <div><span>SMS</span><b>Later</b></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="card">
+        <div class="card-head"><div><h2>Order Lifecycle</h2><p>Future trigger map — no real events connected yet</p></div></div>
+        <div class="flow">
+          <span>New Order</span><i>→</i><span>Accepted</span><i>→</i><span>Preparing</span><i>→</i><span>Ready</span><i>→</i><span>Rider Accepted</span><i>→</i><span>On the Way</span><i>→</i><span>Delivered</span>
+        </div>
+      </section>
+    </section>
+
+    <section id="view-inbox" class="view">
+      <section class="card">
+        <div class="toolbar">
+          <div><h2>Inbox</h2><p>All notification records shown here are demo UI records.</p></div>
+          <div class="filters"><input id="searchInput" placeholder="Search notifications…"><select id="typeFilter"><option value="all">All types</option><option>Order</option><option>Partner</option><option>Payment</option><option>Promotion</option><option>System</option></select><button class="ghost" id="unreadOnly">Unread only</button></div>
+        </div>
+        <div id="inboxList" class="notification-list large"></div>
+      </section>
+    </section>
+
+    <section id="view-orders" class="view"><div class="card"><div class="card-head"><div><h2>Order Notifications</h2><p>Business status events to connect later.</p></div></div><div id="orderEvents" class="event-grid"></div></div></section>
+    <section id="view-partners" class="view"><div class="card"><div class="card-head"><div><h2>Partner Notifications</h2><p>Seller / Rider / Delivery / Transport partner lifecycle.</p></div></div><div id="partnerEvents" class="event-grid"></div></div></section>
+    <section id="view-payments" class="view"><div class="card"><div class="card-head"><div><h2>Payment Notifications</h2><p>Payment and settlement events to connect later.</p></div></div><div id="paymentEvents" class="event-grid"></div></div></section>
+
+    <section id="view-promotions" class="view">
+      <div class="grid">
+        <section class="card"><div class="card-head"><div><h2>Promotions</h2><p>Prepare promotional notification content.</p></div><button class="primary" data-toast="Promotion draft created (UI only).">Create Promotion</button></div><div class="promo-box"><strong>Example promotion</strong><p>Special offer notification content will be managed here.</p><span>Channel: In-App · Status: Draft</span></div></section>
+        <section class="card"><h2>Promotion Controls</h2><label class="check"><input type="checkbox" checked> Enable in-app promotions</label><label class="check"><input type="checkbox"> Enable email promotions later</label><label class="check"><input type="checkbox"> Enable push promotions later</label></section>
+      </div>
+    </section>
+
+    <section id="view-system" class="view"><div class="card"><div class="card-head"><div><h2>System Notifications</h2><p>Maintenance, service notices, and system messages.</p></div></div><div class="system-list"><div><span class="dot"></span><div><b>System notification center is ready</b><p>V1 is currently UI/scaffold only.</p></div><em>Info</em></div><div><span class="dot"></span><div><b>Integrations are not connected</b><p>Email, Push, Telegram, Viber and SMS are planned for a later phase.</p></div><em>Planned</em></div></div></div></section>
+
+    <section id="view-templates" class="view">
+      <div class="card">
+        <div class="toolbar"><div><h2>Notification Templates</h2><p>Reusable message templates. Save locally in this V1 UI only.</p></div><button class="primary" id="addTemplate">Add Template</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Title</th><th>Channel</th><th>Status</th><th></th></tr></thead><tbody id="templateTable"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="view-channels" class="view">
+      <div class="grid channel-grid">
+        <section class="card channel-card"><h3>In-App</h3><p>Notification center / inbox.</p><b class="badge enabled">V1 UI Ready</b></section>
+        <section class="card channel-card"><h3>Email</h3><p>Provider connection will be added later.</p><b class="badge">Not connected</b></section>
+        <section class="card channel-card"><h3>Push</h3><p>Web/mobile push provider later.</p><b class="badge">Not connected</b></section>
+        <section class="card channel-card"><h3>Telegram</h3><p>Bot integration later.</p><b class="badge">Not connected</b></section>
+        <section class="card channel-card"><h3>Viber</h3><p>Business messaging integration later.</p><b class="badge">Not connected</b></section>
+        <section class="card channel-card"><h3>SMS</h3><p>SMS provider integration later.</p><b class="badge">Not connected</b></section>
+      </div>
+    </section>
+
+    <section id="view-settings" class="view">
+      <div class="grid">
+        <section class="card"><h2>Notification Settings</h2><label class="row-setting"><span>In-App notifications</span><input type="checkbox" checked></label><label class="row-setting"><span>Order notifications</span><input type="checkbox" checked></label><label class="row-setting"><span>Partner notifications</span><input type="checkbox" checked></label><label class="row-setting"><span>Payment notifications</span><input type="checkbox" checked></label><label class="row-setting"><span>Promotion notifications</span><input type="checkbox"></label></section>
+        <section class="card"><h2>Future Integration Settings</h2><p class="muted">Credentials, provider IDs and webhooks should be added only when the real channel integrations are implemented.</p><div class="integration-note">No API keys or external service credentials are stored in V1.</div></section>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="templateDialog">
+    <form method="dialog" id="templateForm">
+      <div class="dialog-head"><h2>New Template</h2><button value="cancel" class="icon-btn">×</button></div>
+      <label>Event<select id="templateEvent"><option>New Order</option><option>Order Accepted</option><option>Preparing</option><option>Ready</option><option>Rider Accepted</option><option>On the Way</option><option>Delivered</option><option>Application Received</option><option>Payment Verified</option><option>Refund</option><option>Settlement</option></select></label>
+      <label>Title<input id="templateTitle" required placeholder="Notification title"></label>
+      <label>Message<textarea id="templateMessage" rows="4" placeholder="Notification message"></textarea></label>
+      <label>Channel<select id="templateChannel"><option>In-App</option><option>Email</option><option>Push</option><option>Telegram</option><option>Viber</option><option>SMS</option></select></label>
+      <div class="dialog-actions"><button value="cancel" class="ghost">Cancel</button><button value="default" class="primary">Save Template</button></div>
+    </form>
+  </dialog>
+  <script src="./notifications.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="my">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>H MARKET — Account</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <link rel="stylesheet" href="./account.css">
+</head>
+<body>
+  <main class="account-page">
+    <header class="account-top">
+      <button id="backBtn" class="icon-btn">←</button>
+      <div><h1>Account</h1><p>H MARKET Account</p></div>
+    </header>
+
+    <section class="profile-card">
+      <div id="avatar" class="avatar">?</div>
+      <div class="profile-copy">
+        <h2 id="profileName">Guest</h2>
+        <p id="profileSub">Login to your H MARKET account</p>
+      </div>
+    </section>
+
+    <section id="guestActions" class="card">
+      <button class="account-row primary" id="loginBtn">🔐 <span>Login</span><b>›</b></button>
+      <button class="account-row" id="registerBtn">📝 <span>Create Account</span><b>›</b></button>
+    </section>
+
+    <section id="memberActions" class="card hidden">
+      <h3>My Account</h3>
+      <button class="account-row">👤 <span>Profile</span><b>›</b></button>
+      <button class="account-row">📦 <span>My Orders</span><b>›</b></button>
+      <button class="account-row">⭐ <span>My Reviews</span><b>›</b></button>
+      <button class="account-row">💬 <span>My Comments</span><b>›</b></button>
+      <button class="account-row">🎁 <span>Points & Coupons</span><b>›</b></button>
+      <button class="account-row">🔔 <span>Notifications</span><b>›</b></button>
+      <button class="account-row">💳 <span>Payment History</span><b>›</b></button>
+      <button class="account-row">⚙️ <span>Settings</span><b>›</b></button>
+      <button class="account-row danger" id="logoutBtn">🚪 <span>Logout</span><b>›</b></button>
+    </section>
+
+    <section class="card">
+      <h3>🤝 Join H MARKET</h3>
+      <div id="partnerServices"></div>
+    </section>
+
+    <section class="card help-card">
+      <button class="account-row">❓ <span>Help & Support</span><b>›</b></button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary navigation">
+    <a href="../customer/customer.html" class="nav-item"><span>⌂</span><small>Home</small></a>
+    <a href="../customer/customer.html?screen=shops" class="nav-item"><span>🛍</span><small>Shop</small></a>
+    <a href="../customer/customer.html?screen=cart" class="nav-item"><span>🛒</span><small>Cart</small></a>
+    <a href="./account.html" class="nav-item active"><span>♙</span><small>Account</small></a>
+</nav>
+
+  <script src="../shared/config.js"></script>
+  <script src="../shared/supabase.js"></script>
+  <script src="../shared/services-config.js"></script>
+  <script src="./account.js"></script>
+</body>
+</html>

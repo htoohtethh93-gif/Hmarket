@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Seller</title>
+<link rel="stylesheet" href="./seller.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div>
+    <div class="brand">H MARKET</div>
+    <div class="subtitle">🏪 Seller Dashboard</div>
+  </div>
+</header>
+
+<main class="page">
+  <section class="welcome">
+    <div>
+      <span class="eyebrow">SELLER CENTER</span>
+      <h1>Welcome, Seller 👋</h1>
+      <p>Shop, products, orders and business tools in one place.</p>
+    </div>
+    <div class="shop-status"><span></span> Shop Active</div>
+  </section>
+
+  <section class="kpis">
+    <article><span>📦</span><small>Orders Today</small><strong>0</strong></article>
+    <article><span>🛍️</span><small>Products</small><strong>0</strong></article>
+    <article><span>💰</span><small>Sales Today</small><strong>0 MMK</strong></article>
+    <article><span>⭐</span><small>Rating</small><strong>—</strong></article>
+  </section>
+
+  <section class="layout">
+    <aside class="sidebar">
+      <button class="nav active" data-panel="dashboard">🏠 Dashboard</button>
+      <button class="nav" data-panel="products">📦 Products</button>
+      <button class="nav" data-panel="orders">🧾 Orders</button>
+      <button class="nav" data-panel="shop">🏪 My Shop</button>
+      <button class="nav" data-panel="staff">👥 Staff / Permissions</button>
+      <button class="nav" data-panel="ins-shop">🍽️ IN SHOP</button>
+      <button class="nav" data-panel="sales">📊 Sales / Reports</button>
+      <button class="nav" data-panel="payments">💳 Payments / Settlement</button>
+      <button class="nav" data-panel="notifications">🔔 Notifications</button>
+      <button class="nav" data-panel="ratings">⭐ Ratings / Reviews</button>
+      <button class="nav" data-panel="promotions">🔥 Promotions</button>
+      <button class="nav" data-panel="settings">⚙️ Settings</button>
+      <button class="nav logout" data-panel="logout">🚪 Logout</button>
+    </aside>
+
+    <section class="workspace">
+      <div id="dashboard" class="panel active">
+        <div class="panel-head"><div><h2>Dashboard</h2><p>Quick view of your shop activity.</p></div><button class="primary">+ Add Product</button></div>
+        <div class="cards">
+          <div class="box"><b>Pending Orders</b><strong>0</strong><span>Waiting for action</span></div>
+          <div class="box"><b>Preparing</b><strong>0</strong><span>Orders being prepared</span></div>
+          <div class="box"><b>Ready</b><strong>0</strong><span>Waiting for rider</span></div>
+        </div>
+        <div class="section-box"><h3>Recent Orders</h3><div class="empty">No real orders connected yet.</div></div>
+      </div>
+
+      <div id="products" class="panel">
+        <div class="panel-head"><div><h2>Products</h2><p>Manage product name, category, price, stock and availability.</p></div><button class="primary">+ Add Product</button></div>
+        <div class="notice">Product management will connect to the existing <b>products</b> and <b>product_categories</b> tables.</div>
+      </div>
+
+      <div id="orders" class="panel">
+        <div class="panel-head"><div><h2>Orders</h2><p>Accept, reject, prepare and mark orders ready.</p></div></div>
+        <div class="flow"><span>New</span><i>→</i><span>Accept</span><i>→</i><span>Preparing</span><i>→</i><span>Ready</span><i>→</i><span>Rider</span></div>
+        <div class="empty">Real Supabase orders will appear here later.</div>
+      </div>
+
+      <div id="shop" class="panel">
+        <div class="panel-head"><div><h2>My Shop</h2><p>Storefront information shown to customers.</p></div><button class="primary">Edit Shop</button></div>
+        <div class="form-grid">
+          <label>Shop Name<input placeholder="Your shop name"></label>
+          <label>Category<input placeholder="Shop category"></label>
+          <label>Phone<input placeholder="Shop phone"></label>
+          <label>Address<input placeholder="Shop address"></label>
+          <label class="wide">Description<textarea placeholder="Shop description"></textarea></label>
+        </div>
+      </div>
+
+      <div id="staff" class="panel">
+        <div class="panel-head"><div><h2>Staff / Permissions</h2><p>Owner, Manager and Counter roles.</p></div><button class="primary">+ Add Staff</button></div>
+        <div class="role-grid"><div><b>Owner</b><span>Full shop control</span></div><div><b>Manager</b><span>Operations and orders</span></div><div><b>Counter</b><span>IN SHOP / counter orders</span></div></div>
+      </div>
+
+      <div id="ins-shop" class="panel">
+        <div class="panel-head"><div><h2>IN SHOP</h2><p>Table / Counter / Waiter → Kitchen → Paid.</p></div><button class="primary">+ New Table Order</button></div>
+        <div class="tables"><button>Table 1<br><small>Available</small></button><button>Table 2<br><small>Available</small></button><button>Table 3<br><small>Available</small></button><button>Counter<br><small>Available</small></button></div>
+        <div class="notice">IN_SHOP orders stay separate from ONLINE orders.</div>
+      </div>
+
+      <div id="sales" class="panel"><div class="panel-head"><div><h2>Sales / Reports</h2><p>Keep historical records for accounting.</p></div></div><div class="filters"><button>Today</button><button>This Week</button><button>This Month</button><button>Last Month</button><button>Last 3 Months</button><button>Custom Date</button></div><div class="empty">Sales reports will use real order data later.</div></div>
+
+      <div id="payments" class="panel"><div class="panel-head"><div><h2>Payments / Settlement</h2><p>COD, KPay, Wave and seller settlement records.</p></div></div><div class="notice">Payment gateway integration is a later phase. Manual KPay / Wave slips can be connected to orders.</div></div>
+
+      <div id="notifications" class="panel"><div class="panel-head"><div><h2>Notifications</h2><p>Order, payment and system notifications.</p></div></div><div class="empty">No notifications.</div></div>
+
+      <div id="ratings" class="panel"><div class="panel-head"><div><h2>Ratings / Reviews</h2><p>Customer ratings and product/shop reviews.</p></div></div><div class="empty">No reviews connected yet.</div></div>
+
+      <div id="promotions" class="panel"><div class="panel-head"><div><h2>Promotions</h2><p>Product offers and shop promotions.</p></div><button class="primary">+ Create Promotion</button></div><div class="notice">Promotion rules will connect to the existing product/shop data later.</div></div>
+
+      <div id="settings" class="panel"><div class="panel-head"><div><h2>Settings</h2><p>Seller preferences and shop settings.</p></div></div><div class="setting-list"><div>🌐 Language <span>မြန်မာ / English</span></div><div>🌙 Appearance <span>Light / Dark</span></div><div>🔔 Notifications <span>On</span></div></div></div>
+
+      <div id="logout" class="panel"><div class="empty"><h2>Logout</h2><p>Logout will be connected to the shared H MARKET authentication module.</p><button class="primary">Logout</button></div></div>
+    </section>
+  </section>
+</main>
+<script src="./seller.js"></script>
+</body>
+</html>

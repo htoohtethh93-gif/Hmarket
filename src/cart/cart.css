@@ -1,0 +1,14 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7fb;color:#10233f;font-family:Arial,"Noto Sans Myanmar",sans-serif}
+.cart-page{max-width:760px;margin:auto;padding:16px 14px 100px}
+.cart-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}.cart-top h1{margin:0;font-size:22px}.cart-top p{margin:3px 0;color:#748198;font-size:12px}
+.icon-btn{width:40px;height:40px;border:1px solid #dfe5ee;background:#fff;border-radius:12px;cursor:pointer;font-size:20px}
+.shop-group{background:#fff;border:1px solid #e1e7f0;border-radius:18px;margin-bottom:12px;overflow:hidden}.shop-head{padding:12px 14px;font-weight:800;border-bottom:1px solid #edf0f5}
+.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:10px;padding:12px 14px;border-bottom:1px solid #edf0f5;align-items:center}.cart-item:last-child{border-bottom:0}
+.item-img{width:70px;height:70px;border-radius:12px;background:#e9eef6;display:grid;place-items:center;overflow:hidden;font-size:28px}.item-img img{width:100%;height:100%;object-fit:cover}
+.item-name{font-weight:800;font-size:14px}.item-meta{font-size:11px;color:#718096;margin-top:4px}.price{font-size:13px;font-weight:800;margin-top:6px}
+.qty{display:flex;align-items:center;gap:7px;margin-top:8px}.qty button{width:28px;height:28px;border:1px solid #dfe5ee;background:#fff;border-radius:8px;cursor:pointer}.qty span{min-width:18px;text-align:center;font-weight:800}
+.delete{border:0;background:transparent;color:#c0392b;cursor:pointer;font-size:18px}.summary{background:#fff;border:1px solid #e1e7f0;border-radius:18px;padding:15px;position:sticky;bottom:10px;box-shadow:0 8px 24px rgba(20,40,70,.08)}.summary-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px}.summary-row.total{font-size:16px;border-top:1px solid #edf0f5;margin-top:5px;padding-top:11px}.checkout-btn,.primary-btn{border:0;border-radius:12px;padding:13px 16px;cursor:pointer;font-weight:800}.checkout-btn{width:100%;background:#123b78;color:#fff;margin-top:10px}.primary-btn{background:#123b78;color:#fff}.empty{text-align:center;padding:70px 15px;color:#718096}.empty>div{font-size:52px}.empty h2{color:#243b5a;font-size:19px}.empty p{font-size:12px}.hidden{display:none}
+@media(max-width:480px){.cart-page{padding:10px 10px 90px}.cart-item{grid-template-columns:58px 1fr auto;padding:10px}.item-img{width:58px;height:58px}}
+.bottom-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(100%,1100px);height:70px;background:#fff;border-top:1px solid #e6ebf3;display:flex;justify-content:space-around;align-items:center;z-index:9999;padding-bottom:env(safe-area-inset-bottom)}
+.bottom-nav .nav-item{flex:1;text-align:center;text-decoration:none;color:#52627d;font-size:22px;line-height:1.1}.bottom-nav .nav-item span{display:block;font-size:11px;margin-top:4px;font-weight:700}.bottom-nav .nav-item:hover{color:#123b78}

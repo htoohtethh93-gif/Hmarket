@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="my">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>H MARKET — Shops</title>
+  <link rel="stylesheet" href="../shared/common.css">
+  <link rel="stylesheet" href="./shop.css">
+</head>
+<body>
+  <main class="shop-page">
+    <header class="shop-top">
+      <button id="backBtn" class="icon-btn">←</button>
+      <div>
+        <h1>Shops</h1>
+        <p id="locationText">Location</p>
+      </div>
+      <div class="spacer"></div>
+      <button id="refreshBtn" class="icon-btn" title="Refresh">↻</button>
+    </header>
+
+    <section class="shop-tools">
+      <input id="searchInput" type="search" placeholder="ဆိုင်ရှာရန် / Search shops">
+    </section>
+
+    <section id="categoryChips" class="chips"></section>
+    <section id="shopList" class="shop-list"></section>
+
+    <section id="emptyState" class="empty hidden">
+      <div class="empty-icon">🏪</div>
+      <h2>ဆိုင်မတွေ့သေးပါ</h2>
+      <p>ရွေးထားသော Location / Category အရ ဆိုင်များ မရှိသေးပါ။</p>
+    </section>
+  
+<nav class="bottom-nav">
+  <a href="../customer/customer.html" class="nav-item">⌂<span>Home</span></a>
+  <a href="../shop/shop.html" class="nav-item NAV_ACTIVE_SHOP">▣<span>Shop</span></a>
+  <a href="../cart/cart.html" class="nav-item NAV_ACTIVE_CART">🛒<span>Cart</span></a>
+  <a href="../account/account.html" class="nav-item">♙<span>Account</span></a>
+</nav>
+</main>
+
+  <script src="../shared/config.js"></script>
+  <script src="../shared/supabase.js"></script>
+  <script src="./shop.js"></script>
+</body>
+</html>

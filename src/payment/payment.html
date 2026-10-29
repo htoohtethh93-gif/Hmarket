@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Payment / Settlement</title>
+<link rel="stylesheet" href="./payment.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div><b>H MARKET</b><small>Payment / Settlement</small></div>
+</header>
+
+<main>
+<section class="hero">
+  <div><span class="eyebrow">CORE BUSINESS</span><h1>💳 Payment & Settlement</h1>
+  <p>Payment records, manual slips, commissions and partner settlement foundation.</p></div>
+  <span class="status">● V1 Foundation</span>
+</section>
+
+<section class="kpis">
+  <article><span>💳</span><small>Payments</small><strong>0</strong></article>
+  <article><span>⏳</span><small>Pending Verification</small><strong>0</strong></article>
+  <article><span>💰</span><small>Gross Amount</small><strong>0 MMK</strong></article>
+  <article><span>🏦</span><small>Pending Settlement</small><strong>0 MMK</strong></article>
+</section>
+
+<section class="layout">
+<aside class="side">
+  <button class="nav active" data-panel="dashboard">🏠 Dashboard</button>
+  <button class="nav" data-panel="payments">💳 Payments</button>
+  <button class="nav" data-panel="verification">🔎 Payment Verification</button>
+  <button class="nav" data-panel="settlements">🏦 Settlements</button>
+  <button class="nav" data-panel="commissions">🧾 Commissions</button>
+  <button class="nav" data-panel="methods">⚙️ Payment Methods</button>
+  <button class="nav" data-panel="history">📜 History</button>
+  <button class="nav" data-panel="settings">🔧 Settings</button>
+</aside>
+
+<section class="workspace">
+<div id="dashboard" class="panel active">
+  <div class="head"><div><h2>Payment Dashboard</h2><p>One place for customer payments and partner settlement.</p></div></div>
+  <div class="flow"><span>Customer Payment</span><i>→</i><span>Verification</span><i>→</i><span>Order Confirmed</span><i>→</i><span>Settlement</span></div>
+  <div class="cards">
+    <div><b>COD</b><strong>0 MMK</strong><small>Cash on delivery</small></div>
+    <div><b>KPay / Wave</b><strong>0 MMK</strong><small>Manual transfer records</small></div>
+    <div><b>Commission</b><strong>0 MMK</strong><small>Partner commissions</small></div>
+  </div>
+  <div class="notice">Real gateway/API integration can be added later. V1 keeps the payment model separate from the UI.</div>
+</div>
+
+<div id="payments" class="panel">
+  <div class="head"><div><h2>Payments</h2><p>Order-linked payment records.</p></div><button class="primary">+ Payment Record</button></div>
+  <div class="filters"><input placeholder="Search order / customer"><select><option>All Methods</option><option>COD</option><option>KPay</option><option>Wave</option><option>Bank</option></select><select><option>All Status</option><option>Pending</option><option>Verified</option><option>Rejected</option><option>Refunded</option></select></div>
+  <div class="empty">No payment records connected yet.</div>
+</div>
+
+<div id="verification" class="panel">
+  <div class="head"><div><h2>Payment Verification</h2><p>Review KPay / Wave / bank transfer screenshots and payment details.</p></div></div>
+  <div class="verify"><b>Pending verification</b><span>Slip image · last 6 digits · amount · order ID</span><div><button class="secondary">View</button><button class="primary">Verify</button><button class="danger">Reject</button></div></div>
+  <div class="notice">Verification must happen before an order is treated as paid when manual payment is used.</div>
+</div>
+
+<div id="settlements" class="panel">
+  <div class="head"><div><h2>Settlements</h2><p>Seller, rider and partner balances.</p></div></div>
+  <div class="cards">
+    <div><b>Seller Settlement</b><strong>0 MMK</strong><small>Pending</small></div>
+    <div><b>Rider Settlement</b><strong>0 MMK</strong><small>Pending</small></div>
+    <div><b>Partner Settlement</b><strong>0 MMK</strong><small>Pending</small></div>
+  </div>
+  <div class="notice">Settlement rules should use actual commission and payment records, not hard-coded amounts.</div>
+</div>
+
+<div id="commissions" class="panel">
+  <div class="head"><div><h2>Commissions</h2><p>Separate rules for seller, rider, delivery and transport partners.</p></div><button class="primary">+ Commission Rule</button></div>
+  <div class="rules">
+    <div><b>Seller Commission</b><span>Rule not configured</span></div>
+    <div><b>Rider / Delivery Commission</b><span>Rule not configured</span></div>
+    <div><b>Transport Partner Commission</b><span>Rule not configured</span></div>
+    <div><b>Accommodation Commission</b><span>Rule not configured</span></div>
+  </div>
+</div>
+
+<div id="methods" class="panel">
+  <div class="head"><div><h2>Payment Methods</h2><p>Methods that can be enabled for checkout.</p></div></div>
+  <div class="methods">
+    <label><input type="checkbox" checked> COD — Cash on Delivery</label>
+    <label><input type="checkbox" checked> KPay — Manual Slip</label>
+    <label><input type="checkbox" checked> Wave — Manual Slip</label>
+    <label><input type="checkbox"> Bank Transfer</label>
+    <label><input type="checkbox"> Online Gateway</label>
+  </div>
+  <div class="notice">Gateway credentials, PINs and OTPs must never be stored in this frontend module.</div>
+</div>
+
+<div id="history" class="panel">
+  <div class="head"><div><h2>Payment History</h2><p>Keep records for accounting and audit.</p></div></div>
+  <div class="filters"><select><option>Today</option><option>This Week</option><option>This Month</option><option>Last Month</option><option>Last 3 Months</option><option>Custom Date</option></select><input type="date"><input type="date"></div>
+  <div class="empty">No history yet.</div>
+</div>
+
+<div id="settings" class="panel">
+  <div class="head"><div><h2>Settings</h2><p>Payment and settlement preferences.</p></div></div>
+  <div class="settings"><div>Manual payment verification <span>ON</span></div><div>Settlement records <span>ON</span></div><div>Refund records <span>ON</span></div><div>Gateway integration <span>Later</span></div></div>
+</div>
+</section>
+</section>
+</main>
+<script src="./payment.js"></script>
+</body>
+</html>

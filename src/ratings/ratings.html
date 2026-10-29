@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Ratings / Reviews</title>
+<link rel="stylesheet" href="./ratings.css">
+</head>
+<body>
+<header class="topbar">
+  <a href="../../index.html" class="back">← H MARKET</a>
+  <div><b>H MARKET</b><small>Ratings / Reviews</small></div>
+</header>
+
+<main>
+<section class="hero">
+  <div><span class="eyebrow">TRUST & FEEDBACK</span><h1>⭐ Ratings & Reviews</h1><p>Manage customer ratings, reviews, replies and complaint-related feedback.</p></div>
+  <span class="status">● V1 Foundation</span>
+</section>
+
+<section class="kpis">
+  <article><span>⭐</span><small>Total Reviews</small><strong>0</strong></article>
+  <article><span>★</span><small>Average Rating</small><strong>0.0</strong></article>
+  <article><span>⏳</span><small>Pending Moderation</small><strong>0</strong></article>
+  <article><span>🚩</span><small>Reported Reviews</small><strong>0</strong></article>
+</section>
+
+<section class="layout">
+<aside class="side">
+<button class="nav active" data-panel="dashboard">🏠 Dashboard</button>
+<button class="nav" data-panel="shops">🏪 Shop Reviews</button>
+<button class="nav" data-panel="products">🍔 Product Reviews</button>
+<button class="nav" data-panel="riders">🛵 Rider Ratings</button>
+<button class="nav" data-panel="transport">🚕 Transport Ratings</button>
+<button class="nav" data-panel="accommodation">🏨 Accommodation</button>
+<button class="nav" data-panel="moderation">🛡️ Moderation</button>
+<button class="nav" data-panel="reports">🚩 Reports</button>
+<button class="nav" data-panel="settings">⚙️ Settings</button>
+</aside>
+
+<section class="workspace">
+<div id="dashboard" class="panel active">
+  <div class="head"><div><h2>Ratings Dashboard</h2><p>Unified feedback foundation across H MARKET services.</p></div></div>
+  <div class="flow"><span>Order / Booking</span><i>→</i><span>Eligible Customer</span><i>→</i><span>Rating / Review</span><i>→</i><span>Publish</span></div>
+  <div class="cards">
+    <div><b>Shop</b><strong>0.0 ★</strong><small>Average</small></div>
+    <div><b>Rider</b><strong>0.0 ★</strong><small>Average</small></div>
+    <div><b>Transport</b><strong>0.0 ★</strong><small>Average</small></div>
+  </div>
+  <div class="notice">A customer should normally review only after a completed order, delivery or booking.</div>
+</div>
+
+<div id="shops" class="panel">
+  <div class="head"><div><h2>Shop Reviews</h2><p>Customer ratings and written reviews for shops.</p></div></div>
+  <div class="filters"><input placeholder="Search shop / review"><select><option>All Ratings</option><option>5 Stars</option><option>4 Stars</option><option>3 Stars</option><option>2 Stars</option><option>1 Star</option></select></div>
+  <div class="review"><div class="stars">★★★★★</div><b>Example shop review</b><span>Demo record — not connected yet.</span><div class="actions"><button>View</button><button>Reply</button></div></div>
+  <div class="empty">No real shop reviews connected yet.</div>
+</div>
+
+<div id="products" class="panel">
+  <div class="head"><div><h2>Product Reviews</h2><p>Food and product-level customer feedback.</p></div></div>
+  <div class="notice">Product reviews can be linked to an order item and product after a completed order.</div>
+  <div class="empty">No product reviews yet.</div>
+</div>
+
+<div id="riders" class="panel">
+  <div class="head"><div><h2>Rider Ratings</h2><p>Delivery experience feedback.</p></div></div>
+  <div class="cards">
+    <div><b>Delivery Rating</b><strong>0.0 ★</strong><small>Average rider rating</small></div>
+    <div><b>Completed Deliveries</b><strong>0</strong><small>Eligible orders</small></div>
+    <div><b>Reported</b><strong>0</strong><small>Flagged feedback</small></div>
+  </div>
+</div>
+
+<div id="transport" class="panel">
+  <div class="head"><div><h2>Transport Ratings</h2><p>Car, motorbike, bus, taxi, three-wheel and ferry service feedback.</p></div></div>
+  <div class="cards">
+    <div><b>Service Rating</b><strong>0.0 ★</strong><small>Average</small></div>
+    <div><b>Driver Rating</b><strong>0.0 ★</strong><small>Where applicable</small></div>
+    <div><b>Service Reviews</b><strong>0</strong><small>Completed bookings</small></div>
+  </div>
+</div>
+
+<div id="accommodation" class="panel">
+  <div class="head"><div><h2>Accommodation Reviews</h2><p>Property and stay experience feedback.</p></div></div>
+  <div class="notice">Reviews should become eligible after a completed stay / booking.</div>
+  <div class="empty">No accommodation reviews yet.</div>
+</div>
+
+<div id="moderation" class="panel">
+  <div class="head"><div><h2>Moderation</h2><p>Review visibility and policy controls.</p></div></div>
+  <div class="moderation-grid">
+    <div><b>Pending</b><strong>0</strong><span>Needs review</span></div>
+    <div><b>Published</b><strong>0</strong><span>Visible to customers</span></div>
+    <div><b>Hidden</b><strong>0</strong><span>Admin hidden</span></div>
+    <div><b>Reported</b><strong>0</strong><span>Needs attention</span></div>
+  </div>
+  <div class="notice">Do not silently edit a customer's words. Moderation should use visibility/status and documented rules.</div>
+</div>
+
+<div id="reports" class="panel">
+  <div class="head"><div><h2>Reported Reviews</h2><p>Customer or partner reports for inappropriate or disputed reviews.</p></div></div>
+  <div class="empty">No reported reviews.</div>
+</div>
+
+<div id="settings" class="panel">
+  <div class="head"><div><h2>Settings</h2><p>Review eligibility and display settings.</p></div></div>
+  <div class="settings">
+    <div>Allow customer reviews <span>ON</span></div>
+    <div>Review after completed order <span>ON</span></div>
+    <div>Star rating required <span>ON</span></div>
+    <div>Written review optional <span>ON</span></div>
+    <div>Partner reply <span>ON</span></div>
+    <div>Customer edit window <span>Configurable</span></div>
+  </div>
+</div>
+</section>
+</section>
+</main>
+<script src="./ratings.js"></script>
+</body>
+</html>

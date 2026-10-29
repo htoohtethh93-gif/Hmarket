@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Transportation</title>
+<link rel="stylesheet" href="./transportation.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div>
+    <div class="brand">H MARKET</div>
+    <div class="subtitle">🚕 Transportation</div>
+  </div>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <div class="hero-icon">🚕</div>
+    <div>
+      <h1>Transportation</h1>
+      <p>ကား၊ ဆိုင်ကယ်၊ လိုင်းကား၊ ကယ်ရီနှင့် အခြားသယ်ယူပို့ဆောင်ရေးဝန်ဆောင်မှုများ</p>
+    </div>
+  </section>
+
+  <nav class="tabs" aria-label="Transportation types">
+    <button class="tab active" data-type="all">All</button>
+    <button class="tab" data-type="car">🚗 ကား</button>
+    <button class="tab" data-type="motorbike">🏍️ ဆိုင်ကယ်</button>
+    <button class="tab" data-type="bus">🚌 လိုင်းကား</button>
+    <button class="tab" data-type="motor-taxi">🚕 ကယ်ရီ</button>
+    <button class="tab" data-type="three-wheel">🛺 သုံးဘီး</button>
+    <button class="tab" data-type="ferry">⛴️ Ferry</button>
+  </nav>
+
+  <section class="controls">
+    <input id="search" type="search" placeholder="Search transport, company, route">
+    <select id="location">
+      <option>NyaungDon</option>
+      <option>All Active Locations</option>
+    </select>
+  </section>
+
+  <section class="section-head">
+    <h2 id="sectionTitle">Transportation Services</h2>
+    <span id="count">0</span>
+  </section>
+
+  <section id="list" class="grid"></section>
+
+  <section id="empty" class="empty hidden">
+    <div>🚕</div>
+    <strong>No transportation service found</strong>
+    <p>Approved transport partners and routes will appear here.</p>
+  </section>
+</main>
+
+<script src="./transportation.js"></script>
+</body>
+</html>

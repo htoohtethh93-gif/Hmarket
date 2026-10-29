@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — Delivery Partner</title>
+<link rel="stylesheet" href="./delivery-partner.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div><div class="brand">H MARKET</div><div class="subtitle">🚚 Delivery Partner</div></div>
+</header>
+
+<main class="page">
+  <section class="welcome">
+    <div><span class="eyebrow">DELIVERY PARTNER CENTER</span><h1>Delivery Team 👋</h1><p>Manage your delivery team, riders, service areas and integration details.</p></div>
+    <div class="status"><span></span> Application / Partner Status</div>
+  </section>
+
+  <section class="kpis">
+    <article><span>🛵</span><small>Riders</small><strong>0</strong></article>
+    <article><span>📦</span><small>Today's Jobs</small><strong>0</strong></article>
+    <article><span>🚚</span><small>Active Deliveries</small><strong>0</strong></article>
+    <article><span>💰</span><small>Today's Earnings</small><strong>0 MMK</strong></article>
+  </section>
+
+  <section class="layout">
+    <aside class="sidebar">
+      <button class="nav active" data-panel="dashboard">🏠 Dashboard</button>
+      <button class="nav" data-panel="riders">🛵 Rider Team</button>
+      <button class="nav" data-panel="jobs">📦 Delivery Jobs</button>
+      <button class="nav" data-panel="areas">📍 Service Areas</button>
+      <button class="nav" data-panel="services">🧾 Services</button>
+      <button class="nav" data-panel="integration">🔌 App / API Integration</button>
+      <button class="nav" data-panel="earnings">💰 Earnings / Settlement</button>
+      <button class="nav" data-panel="notifications">🔔 Notifications</button>
+      <button class="nav" data-panel="profile">🏢 Partner Profile</button>
+      <button class="nav" data-panel="settings">⚙️ Settings</button>
+      <button class="nav logout" data-panel="logout">🚪 Logout</button>
+    </aside>
+
+    <section class="workspace">
+      <div id="dashboard" class="panel active">
+        <div class="panel-head"><div><h2>Dashboard</h2><p>Delivery team overview.</p></div><button class="primary" onclick="openPanel('riders')">Manage Riders</button></div>
+        <div class="flow"><span>Order READY</span><i>→</i><span>Job</span><i>→</i><span>Rider Accept</span><i>→</i><span>Pickup</span><i>→</i><span>Delivered</span></div>
+        <div class="cards">
+          <div class="box"><b>Available Riders</b><strong>0</strong><span>Ready for jobs</span></div>
+          <div class="box"><b>Active Jobs</b><strong>0</strong><span>Currently delivering</span></div>
+          <div class="box"><b>Completed Today</b><strong>0</strong><span>Completed deliveries</span></div>
+        </div>
+      </div>
+
+      <div id="riders" class="panel">
+        <div class="panel-head"><div><h2>Rider Team</h2><p>Add and manage riders under this delivery partner.</p></div><button class="primary">+ Add Rider</button></div>
+        <div class="notice">During application, the team can submit a rider count and optional Excel/CSV rider list. Individual H MARKET rider accounts can be connected later.</div>
+        <div class="team-box"><b>Rider list</b><span>0 riders connected</span><button class="secondary">Upload Excel / CSV</button></div>
+      </div>
+
+      <div id="jobs" class="panel">
+        <div class="panel-head"><div><h2>Delivery Jobs</h2><p>Jobs assigned to your delivery team.</p></div><button class="secondary">↻ Refresh</button></div>
+        <div class="job"><div class="job-icon">📦</div><div><b>No real jobs yet</b><span>Seller READY → Delivery Partner → Rider</span><small>Real-time assignment will connect later.</small></div><button class="primary" disabled>Assign</button></div>
+      </div>
+
+      <div id="areas" class="panel">
+        <div class="panel-head"><div><h2>Service Areas</h2><p>Locations and townships where your team operates.</p></div><button class="primary">+ Add Area</button></div>
+        <div class="chips"><span>NyaungDon</span><span>Township areas</span><span>Active only</span></div>
+        <div class="notice">Only H MARKET Admin-active locations can be selected for service.</div>
+      </div>
+
+      <div id="services" class="panel">
+        <div class="panel-head"><div><h2>Delivery Services</h2><p>Choose the delivery work your team supports.</p></div></div>
+        <div class="service-grid">
+          <label><input type="checkbox" checked> Food</label>
+          <label><input type="checkbox" checked> Shop Orders</label>
+          <label><input type="checkbox" checked> Grocery</label>
+          <label><input type="checkbox" checked> Buy-for-Me</label>
+          <label><input type="checkbox"> Other</label>
+        </div>
+        <div class="notice">Transport/taxi services remain separate under Transport Partners.</div>
+      </div>
+
+      <div id="integration" class="panel">
+        <div class="panel-head"><div><h2>App / API Integration</h2><p>Information for future delivery-system integration.</p></div></div>
+        <div class="form-grid">
+          <label>Do you have your own app/system?
+            <select><option>Yes</option><option>No</option></select>
+          </label>
+          <label>Do you have an API?
+            <select><option>Yes</option><option>No</option><option>Not sure</option></select>
+          </label>
+          <label>App / System Name<input placeholder="App or system name"></label>
+          <label>Technical Contact<input placeholder="Phone / Email"></label>
+          <label class="wide">API / Integration Contact<textarea placeholder="API documentation or integration contact details"></textarea></label>
+        </div>
+        <div class="notice">This V1 only collects integration information. Actual API connection will be a later integration module.</div>
+      </div>
+
+      <div id="earnings" class="panel">
+        <div class="panel-head"><div><h2>Earnings / Settlement</h2><p>Partner-level delivery earnings and settlement.</p></div></div>
+        <div class="cards"><div class="box"><b>Delivery Earnings</b><strong>0 MMK</strong></div><div class="box"><b>Commission</b><strong>0 MMK</strong></div><div class="box"><b>Withdrawable</b><strong>0 MMK</strong></div></div>
+        <div class="notice">Settlement will connect to wallet/payment tables later.</div>
+      </div>
+
+      <div id="notifications" class="panel">
+        <div class="panel-head"><div><h2>Notifications</h2><p>Jobs, team and system notifications.</p></div></div>
+        <div class="empty">No notifications.</div>
+      </div>
+
+      <div id="profile" class="panel">
+        <div class="panel-head"><div><h2>Partner Profile</h2><p>Delivery company/team information.</p></div><button class="primary">Edit</button></div>
+        <div class="form-grid">
+          <label>Partner / Team Name<input placeholder="Delivery partner name"></label>
+          <label>Partner Type<select><option>Delivery Company</option><option>Local Delivery Team</option><option>Shop-owned Delivery Team</option><option>Independent Delivery Group</option><option>Other</option></select></label>
+          <label>Contact Person<input placeholder="Contact person"></label>
+          <label>Phone<input placeholder="Phone"></label>
+          <label>Email<input placeholder="Email"></label>
+          <label>Number of Riders<input type="number" min="0" placeholder="12"></label>
+          <label class="wide">Base / Pickup Location<input placeholder="Base location"></label>
+        </div>
+      </div>
+
+      <div id="settings" class="panel">
+        <div class="panel-head"><div><h2>Settings</h2><p>Partner preferences.</p></div></div>
+        <div class="setting-list"><div>🌐 Language <span>မြန်မာ / English</span></div><div>🔔 Notifications <span>On</span></div><div>🟢 Partner Availability <span>Controlled by partner/admin</span></div></div>
+      </div>
+
+      <div id="logout" class="panel"><div class="empty"><h2>Logout</h2><p>Logout will connect to the shared H MARKET authentication module.</p><button class="primary">Logout</button></div></div>
+    </section>
+  </section>
+</main>
+<script src="./delivery-partner.js"></script>
+</body>
+</html>

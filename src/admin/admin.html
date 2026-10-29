@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>H MARKET — Admin Dashboard V1</title>
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="H MARKET Admin navigation">
+      <div class="brand-block">
+        <div class="brand-mark">H</div>
+        <div>
+          <div class="brand-name">H MARKET</div>
+          <div class="brand-sub">Admin Console · V1</div>
+        </div>
+      </div>
+
+      <div class="sidebar-scroll">
+        <div class="nav-section">
+          <div class="nav-label">Overview</div>
+          <button class="nav-item active" data-view="dashboard"><span>▦</span><b>Dashboard</b></button>
+        </div>
+
+        <div class="nav-section collapsible open" data-group="home-content">
+          <button class="nav-group" type="button" data-collapse="home-content"><span>⌂</span><b>Home Content</b><span class="chevron">⌄</span></button>
+          <div class="nav-children">
+            <button class="nav-child" data-view="home-control">Home Control Center</button>
+            <button class="nav-child" data-view="home-sections">Dynamic Home Sections</button>
+            <button class="nav-child" data-view="home-banners">Banners</button>
+            <button class="nav-child" data-view="home-categories">Categories</button>
+            <button class="nav-child" data-view="home-popular">Popular Shops</button>
+            <button class="nav-child" data-view="home-popular-food">Popular Food</button>
+            <button class="nav-child" data-view="home-featured">Featured Shops</button>
+            <button class="nav-child" data-view="home-hotel">Hotel &amp; Stay</button>
+            <button class="nav-child" data-view="home-buy-for-me">🛒 Buy-for-Me</button>
+            <button class="nav-child" data-view="home-locations">Location ON / OFF</button>
+            <button class="nav-child" data-view="home-services">Service ON / OFF</button>
+            <button class="nav-child" data-view="home-preview">👁 Home Preview</button>
+          </div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Marketplace</div>
+          <button class="nav-item" data-view="orders"><span>◫</span><b>Orders</b></button>
+          <button class="nav-item" data-view="customers"><span>◎</span><b>Customers</b></button>
+          <button class="nav-item" data-view="sellers"><span>▤</span><b>Sellers</b></button>
+          <button class="nav-item" data-view="riders"><span>◉</span><b>Riders</b></button>
+          <button class="nav-item" data-view="delivery-partners"><span>⇄</span><b>Delivery Partners</b></button>
+          <button class="nav-item" data-view="transport-partners"><span>⌁</span><b>Transport Partners</b></button>
+          <button class="nav-item" data-view="accommodation-partners"><span>⌂</span><b>Accommodation Partners</b></button>
+        </div>
+
+        <div class="nav-section collapsible" data-group="requests">
+          <button class="nav-group" type="button" data-collapse="requests"><span>✦</span><b>Request Forms</b><span class="chevron">⌄</span></button>
+          <div class="nav-children">
+            <button class="nav-child" data-view="seller-requests">Seller Requests</button>
+            <button class="nav-child" data-view="rider-requests">Rider Requests</button>
+            <button class="nav-child" data-view="delivery-requests">Delivery Partner</button>
+            <button class="nav-child" data-view="transport-requests">Transport Partner</button>
+            <button class="nav-child" data-view="accommodation-requests">Accommodation Partner</button>
+          </div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Finance</div>
+          <button class="nav-item" data-view="commissions"><span>％</span><b>Commissions</b></button>
+          <button class="nav-item" data-view="tax"><span>◇</span><b>Tax</b></button>
+          <button class="nav-item" data-view="payments"><span>₭</span><b>Payments / Settlement</b></button>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Quality & Trust</div>
+          <button class="nav-item" data-view="featured-shops"><span>★</span><b>Featured Shops</b></button>
+          <button class="nav-item" data-view="ratings"><span>☆</span><b>Ratings & Complaints</b></button>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">System</div>
+          <button class="nav-item" data-view="roles"><span>♙</span><b>Admin Roles & Permissions</b></button>
+        </div>
+
+        <div class="nav-section collapsible" data-group="settings">
+          <button class="nav-group" type="button" data-collapse="settings"><span>⚙</span><b>Settings</b><span class="chevron">⌄</span></button>
+          <div class="nav-children">
+            <button class="nav-child" data-view="settings-general">General</button>
+            <button class="nav-child" data-view="settings-notifications">Notifications</button>
+            <button class="nav-child" data-view="settings-system">System Control</button>
+            <button class="nav-child" data-view="settings-security">Security</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="safe-dot"></span>
+        <div><b>H MARKET Admin</b><small>Existing tables · guarded writes</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-left">
+          <button class="icon-btn mobile-only" id="sidebarToggle" aria-label="Open navigation">☰</button>
+          <div>
+            <div class="eyebrow">H MARKET / ADMIN</div>
+            <h1 id="pageTitle">Dashboard</h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <div class="status">● Admin controls · Existing DB</div>
+          <button class="btn secondary" type="button" id="adminLogoutBtn" style="margin-right:8px">Logout</button>
+          <a class="avatar" href="#" aria-label="Admin profile">A</a>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="filters" id="globalFilters">
+          <div class="filter-search"><span>⌕</span><input id="searchInput" type="search" placeholder="Search orders, users, shops…"></div>
+          <label><span>Location</span><select id="locationFilter"><option value="all">All Locations</option><option>Yangon</option><option>Mawlamyine</option><option>Pathein</option><option>Other</option></select></label>
+          <label><span>From</span><input id="fromDate" type="date"></label>
+          <label><span>To</span><input id="toDate" type="date"></label>
+          <button class="btn secondary" id="resetFilters">Reset</button>
+        </div>
+
+        <div id="viewRoot"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="dashboardTemplate">
+    <div class="page-head">
+      <div><h2>Operations overview</h2><p>One place to monitor the existing H MARKET modules. V1 uses demo presentation data only.</p></div>
+      <div class="head-actions"><button class="btn primary" data-open-view="orders">View Orders</button><button class="btn secondary" data-open-view="seller-requests">Review Requests</button></div>
+    </div>
+    <div class="stats-grid">
+      <article class="stat-card"><span class="stat-icon">◫</span><small>Orders Today</small><strong>128</strong><em>+8.4% demo trend</em></article>
+      <article class="stat-card"><span class="stat-icon">◎</span><small>Customers</small><strong>2,486</strong><em>Existing profiles reuse</em></article>
+      <article class="stat-card"><span class="stat-icon">▤</span><small>Active Shops</small><strong>184</strong><em>Existing shop module</em></article>
+      <article class="stat-card"><span class="stat-icon">◉</span><small>Riders Online</small><strong>37</strong><em>Foundation only</em></article>
+      <article class="stat-card"><span class="stat-icon">₭</span><small>Pending Payments</small><strong>16</strong><em>Connect to payment data later</em></article>
+      <article class="stat-card"><span class="stat-icon">✦</span><small>Open Requests</small><strong>24</strong><em>Request review UI</em></article>
+    </div>
+    <div class="dashboard-grid">
+      <section class="card wide">
+        <div class="card-head"><div><h3>Recent Orders</h3><p>UI sample rows — no database query in V1.</p></div><button class="link-btn" data-open-view="orders">Open Orders →</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Shop</th><th>Location</th><th>Status</th><th>Time</th></tr></thead><tbody>
+          <tr><td>#HM-1048</td><td>Customer A</td><td>H Shop</td><td>Yangon</td><td><span class="pill green">Delivered</span></td><td>09:42</td></tr>
+          <tr><td>#HM-1047</td><td>Customer B</td><td>Market One</td><td>Pathein</td><td><span class="pill blue">Preparing</span></td><td>09:39</td></tr>
+          <tr><td>#HM-1046</td><td>Customer C</td><td>H Food</td><td>Yangon</td><td><span class="pill amber">Waiting Rider</span></td><td>09:34</td></tr>
+          <tr><td>#HM-1045</td><td>Customer D</td><td>Daily Shop</td><td>Mawlamyine</td><td><span class="pill gray">Accepted</span></td><td>09:27</td></tr>
+        </tbody></table></div>
+      </section>
+      <section class="card">
+        <div class="card-head"><div><h3>Requests at a glance</h3><p>Use Request Forms to review later.</p></div></div>
+        <div class="mini-list"><button data-open-view="seller-requests"><span>Seller</span><b>8</b></button><button data-open-view="rider-requests"><span>Rider</span><b>5</b></button><button data-open-view="delivery-requests"><span>Delivery Partner</span><b>4</b></button><button data-open-view="transport-requests"><span>Transport Partner</span><b>3</b></button><button data-open-view="accommodation-requests"><span>Accommodation</span><b>4</b></button></div>
+      </section>
+    </div>
+    <div class="dashboard-grid">
+      <section class="card"><div class="card-head"><div><h3>Module health</h3><p>Navigation readiness, not live service monitoring.</p></div></div><div class="health-grid"><span><i class="ok"></i>Customer</span><span><i class="ok"></i>Shop</span><span><i class="ok"></i>Seller</span><span><i class="ok"></i>Rider</span><span><i class="ok"></i>Delivery</span><span><i class="ok"></i>Transport</span><span><i class="ok"></i>Accommodation</span><span><i class="ok"></i>Notifications</span></div></section>
+      <section class="card"><div class="card-head"><div><h3>Quick links</h3><p>Open existing module pages without changing them.</p></div></div><div class="quick-links"><a href="../notifications/notifications.html">Notifications</a><a href="../settings/settings.html">Settings / System Control</a><a href="../payment/payment.html">Payment</a><a href="../ratings/ratings.html">Ratings</a></div></section>
+    </div>
+  </template>
+
+  <script src="../shared/config.js"></script>
+  <script src="../shared/supabase.js"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H MARKET — အဝယ်တော်</title>
+<link rel="stylesheet" href="./buy-for-me.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="../../index.html">← H MARKET</a>
+  <div>
+    <div class="brand">H MARKET</div>
+    <div class="subtitle">🛒 အဝယ်တော်</div>
+  </div>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <div class="hero-icon">🛒</div>
+    <div>
+      <h1>အဝယ်တော်</h1>
+      <p>သင်လိုချင်တဲ့ပစ္စည်းကို Rider က သင့်အတွက် ဝယ်ပြီး ပို့ပေးမယ်။</p>
+    </div>
+  </section>
+
+  <form id="buyForm">
+    <section class="card">
+      <div class="section-title"><h2>1. ဘာဝယ်ပေးရမလဲ?</h2><span>Required</span></div>
+      <label>ပစ္စည်းအမည်
+        <input id="itemName" required placeholder="ဥပမာ — ဆေး၊ အစားအစာ၊ အိမ်သုံးပစ္စည်း">
+      </label>
+      <label>အကြောင်းအရာ / အရေအတွက်
+        <textarea id="details" rows="4" placeholder="Brand, size, color, quantity စသည်ဖြင့် ရေးပါ"></textarea>
+      </label>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h2>2. ပစ္စည်းဓာတ်ပုံ</h2><span>1–3 photos</span></div>
+      <label class="upload">
+        <span>📷 Photo ထည့်ရန်</span>
+        <input id="photos" type="file" accept="image/*" multiple>
+      </label>
+      <div id="photoCount" class="hint">အများဆုံး 3 ပုံ</div>
+      <div id="preview" class="preview"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h2>3. ဝယ်ယူရမယ့်နေရာ</h2></div>
+      <label>ဆိုင် / နေရာ
+        <input id="pickupPlace" required placeholder="ဆိုင်အမည် သို့မဟုတ် ဝယ်ယူရမယ့်နေရာ">
+      </label>
+      <label>လိပ်စာ / Location
+        <textarea id="pickupAddress" rows="3" placeholder="ဝယ်ယူရမယ့်နေရာအသေးစိတ်"></textarea>
+      </label>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h2>4. Budget</h2></div>
+      <label>ခန့်မှန်းပစ္စည်းဖိုး
+        <div class="money-input"><input id="budget" type="number" min="0" step="1" placeholder="50000"><span>MMK</span></div>
+      </label>
+      <div class="warning">Rider အတွက် ကြိုတင်သတ်မှတ်ထားတဲ့ purchase amount ထက် ပိုမိုကုန်ကျပါက ထပ်မံအတည်ပြု/ငွေပေးချေမှု လိုအပ်နိုင်ပါတယ်။</div>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h2>5. Delivery</h2></div>
+      <label>ပို့ရမယ့်လိပ်စာ
+        <textarea id="deliveryAddress" rows="3" required placeholder="ပို့ဆောင်ရမယ့်လိပ်စာ"></textarea>
+      </label>
+      <div class="grid2">
+        <label>ဖုန်း
+          <input id="phone" type="tel" required placeholder="09xxxxxxxxx">
+        </label>
+        <label>အထူးညွှန်ကြားချက်
+          <input id="instructions" placeholder="ဥပမာ — မရရင် မဝယ်ပါနှင့်">
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h2>6. Payment</h2></div>
+      <div class="payment-note">
+        <strong>Prepayment Required</strong>
+        <p>အဝယ်တော်တွင် Rider ကို ကိုယ်ပိုင်ငွေစိုက်ဝယ်ခိုင်းမည့်အစား ဝယ်ယူရန်ခန့်မှန်းငွေကို Customer ဘက်မှ ကြိုတင်ပေးချေ/အတည်ပြုထားမည်။</p>
+      </div>
+      <div class="payment-list">
+        <label class="payment active">
+          <input type="radio" name="payment" value="KPay" checked>
+          <span><strong>KPay</strong><small>Purchase amount authorization</small></span>
+        </label>
+        <label class="payment">
+          <input type="radio" name="payment" value="Wave">
+          <span><strong>Wave</strong><small>Purchase amount authorization</small></span>
+        </label>
+      </div>
+      <div id="paymentDetails">
+        <label>Payment Slip
+          <input id="slip" type="file" accept="image/*">
+        </label>
+        <label>Transaction ID — Last 6 digits
+          <input id="last6" inputmode="numeric" maxlength="6" placeholder="123456">
+        </label>
+        <img id="slipPreview" class="slip-preview hidden" alt="Payment slip preview">
+      </div>
+    </section>
+
+    <section class="card flow">
+      <div class="section-title"><h2>7. Request Flow</h2></div>
+      <div class="steps">
+        <span>Request</span><b>→</b><span>Payment</span><b>→</b><span>Rider Job</span><b>→</b><span>Purchase</span><b>→</b><span>Delivery</span>
+      </div>
+    </section>
+
+    <button class="primary" id="submitBtn" type="submit">🛒 အဝယ်တော် Request တင်မယ်</button>
+    <div id="message" class="message" role="status"></div>
+  </form>
+</main>
+<script src="./buy-for-me.js"></script>
+</body>
+</html>

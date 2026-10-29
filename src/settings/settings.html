@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>H MARKET — Settings / System Control V1</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">H MARKET ADMIN</div>
+      <h1>Settings / System Control</h1>
+      <p>V1 control center — UI scaffold only. Database writes are intentionally disabled.</p>
+    </div>
+    <span class="status-pill">V1 · SAFE MODE</span>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar" aria-label="Settings navigation">
+      <button class="nav active" data-panel="dashboard">📊 Dashboard</button>
+      <button class="nav" data-panel="general">⚙️ General</button>
+      <button class="nav" data-panel="users">👥 Users & Roles</button>
+      <button class="nav" data-panel="partners">🤝 Partner Services</button>
+      <button class="nav" data-panel="orders">📦 Order Control</button>
+      <button class="nav" data-panel="payments">💳 Payment Control</button>
+      <button class="nav" data-panel="notifications">🔔 Notifications</button>
+      <button class="nav" data-panel="security">🔐 Security</button>
+      <button class="nav" data-panel="maintenance">🛠️ Maintenance</button>
+      <button class="nav" data-panel="audit">🧾 Audit / Logs</button>
+    </aside>
+
+    <section class="content">
+      <section class="panel active" id="dashboard">
+        <div class="panel-head"><div><h2>System Dashboard</h2><p>Overview of controls that will be connected later.</p></div></div>
+        <div class="cards">
+          <article><span>🟢</span><small>System Status</small><strong>Ready</strong></article>
+          <article><span>🤝</span><small>Partner Services</small><strong id="partnerCount">Existing table</strong></article>
+          <article><span>🔔</span><small>Notifications</small><strong>Existing table</strong></article>
+          <article><span>🗄️</span><small>Database Changes</small><strong>None</strong></article>
+        </div>
+        <div class="notice"><b>V1 Safe Mode:</b> Controls below are visual scaffolds. No new Settings table is created and no existing records are changed.</div>
+        <div class="grid two">
+          <div class="box"><h3>Existing modules detected</h3><ul><li>Customer / Account</li><li>Shop / Seller</li><li>Order / Cart</li><li>Rider / Delivery Partner</li><li>Payment / Settlement</li><li>Ratings / Reviews</li><li>Notifications</li></ul></div>
+          <div class="box"><h3>Future connection points</h3><ul><li><code>profiles</code> → users / roles</li><li><code>partner_services</code> → service switches</li><li><code>notifications</code> → notification behavior</li><li>Existing order/payment tables → business rules</li></ul></div>
+        </div>
+      </section>
+
+      <section class="panel" id="general">
+        <div class="panel-head"><div><h2>General Settings</h2><p>Platform-wide display and operating preferences.</p></div></div>
+        <div class="form-grid">
+          <label>Platform Name<input value="H MARKET" disabled></label>
+          <label>Default Language<select disabled><option>Myanmar / English</option></select></label>
+          <label>Currency<select disabled><option>MMK</option></select></label>
+          <label>Timezone<select disabled><option>Asia/Yangon</option></select></label>
+          <label>Maintenance Mode<div class="toggle-row"><input type="checkbox" disabled><span>OFF</span></div></label>
+          <label>Customer Registration<div class="toggle-row"><input type="checkbox" checked disabled><span>ON</span></div></label>
+        </div>
+        <div class="notice">These values are placeholders in V1. Connect them to an existing configuration source later instead of creating a duplicate settings table.</div>
+      </section>
+
+      <section class="panel" id="users">
+        <div class="panel-head"><div><h2>Users & Roles</h2><p>Role structure for future Admin control.</p></div></div>
+        <div class="role-grid">
+          <div><b>Admin</b><span>System-wide control</span></div><div><b>Customer</b><span>Customer services</span></div>
+          <div><b>Seller</b><span>Shop operations</span></div><div><b>Rider</b><span>Delivery operations</span></div>
+          <div><b>Delivery Partner</b><span>Delivery company access</span></div><div><b>Transport Partner</b><span>Transport services</span></div>
+        </div>
+        <div class="notice">Role data should reuse the existing <code>profiles</code> structure. No role/permission table is created in V1.</div>
+      </section>
+
+      <section class="panel" id="partners">
+        <div class="panel-head"><div><h2>Partner Services</h2><p>Visual control for existing partner service switches.</p></div><button class="secondary" id="loadServices">Read Existing Services</button></div>
+        <div id="serviceList" class="service-list"><div class="empty">Click “Read Existing Services” when Supabase is connected.</div></div>
+        <div class="notice">This panel is designed for the existing <code>partner_services</code> table. V1 does not insert, delete, or update records.</div>
+      </section>
+
+      <section class="panel" id="orders">
+        <div class="panel-head"><div><h2>Order Control</h2><p>Future business-event controls.</p></div></div>
+        <div class="control-list">
+          <div><b>New Order</b><span>Notification trigger → Later</span></div><div><b>Order Accepted</b><span>Seller action → Later</span></div>
+          <div><b>Preparing</b><span>Seller status → Later</span></div><div><b>Ready</b><span>Rider handoff → Later</span></div>
+          <div><b>Rider Accepted</b><span>Rider action → Later</span></div><div><b>On the Way</b><span>Delivery status → Later</span></div>
+          <div><b>Delivered</b><span>Completion event → Later</span></div>
+        </div>
+      </section>
+
+      <section class="panel" id="payments">
+        <div class="panel-head"><div><h2>Payment Control</h2><p>Payment and settlement rules — scaffold only.</p></div></div>
+        <div class="control-list">
+          <div><b>COD</b><span>Enabled · placeholder</span></div><div><b>KPay</b><span>Manual verification · later</span></div>
+          <div><b>Wave</b><span>Manual verification · later</span></div><div><b>Payment Submitted</b><span>Notification trigger → Later</span></div>
+          <div><b>Payment Verified</b><span>Notification trigger → Later</span></div><div><b>Payment Rejected</b><span>Notification trigger → Later</span></div>
+          <div><b>Refund</b><span>Business event → Later</span></div><div><b>Settlement</b><span>Business event → Later</span></div>
+        </div>
+      </section>
+
+      <section class="panel" id="notifications">
+        <div class="panel-head"><div><h2>Notification Control</h2><p>Connect later to the existing <code>notifications</code> table and Notifications V1.</p></div></div>
+        <div class="channel-grid">
+          <div><b>In-App</b><span>Existing notification UI</span></div><div><b>Email</b><span>Integration later</span></div>
+          <div><b>Push</b><span>Integration later</span></div><div><b>Telegram</b><span>Integration later</span></div>
+          <div><b>Viber</b><span>Integration later</span></div><div><b>SMS</b><span>Integration later</span></div>
+        </div>
+        <div class="notice">No channel API keys or external messaging integrations are configured in V1.</div>
+      </section>
+
+      <section class="panel" id="security">
+        <div class="panel-head"><div><h2>Security</h2><p>Security controls prepared for later implementation.</p></div></div>
+        <div class="control-list">
+          <div><b>Authentication</b><span>Use existing Supabase Auth</span></div><div><b>Role Check</b><span>Use existing profile role</span></div>
+          <div><b>Admin Access</b><span>Protect at integration stage</span></div><div><b>Session Handling</b><span>Use existing auth flow</span></div>
+        </div>
+        <div class="notice warning">Do not expose service-role keys in browser code. Keep Admin-only operations protected by Supabase policies / server-side controls when connected.</div>
+      </section>
+
+      <section class="panel" id="maintenance">
+        <div class="panel-head"><div><h2>Maintenance</h2><p>Operational tools without destructive actions.</p></div></div>
+        <div class="control-list">
+          <div><b>Maintenance Mode</b><span>UI switch only · later</span></div><div><b>System Notice</b><span>Announcement UI · later</span></div>
+          <div><b>Cache / Refresh</b><span>Later</span></div><div><b>Database Health</b><span>Read-only check · later</span></div>
+        </div>
+        <div class="notice">No migration, reset, delete, or destructive database button is included in V1.</div>
+      </section>
+
+      <section class="panel" id="audit">
+        <div class="panel-head"><div><h2>Audit / Logs</h2><p>Future activity history area.</p></div></div>
+        <div class="empty large">Audit log source is not created by this V1 module.<br><small>When an existing audit/log structure is available, this panel can read from it.</small></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="../shared/config.js"></script>
+  <script src="../shared/supabase.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>
